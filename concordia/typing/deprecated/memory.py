@@ -1,16 +1,3 @@
-# Copyright 2023 DeepMind Technologies Limited.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     https://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
 
 """The abstract class for a memory."""
 
@@ -88,7 +75,7 @@ class MemoryBank(metaclass=abc.ABCMeta):
       add_time: bool,
       sort_by_time: bool) -> Sequence[str]:
     """Returns the memory bank as a sequence of strings.
-    
+
     Args:
       add_time: Whether to add the time stamp to the memory.
       sort_by_time: Whether to sort the memories by time.
@@ -98,7 +85,7 @@ class MemoryBank(metaclass=abc.ABCMeta):
   @abc.abstractmethod
   def get_state(self) -> entity_component.ComponentState:
     """Returns the state of the memory bank.
-    
+
     See `set_state` for details. The default implementation returns an empty
     dictionary.
     """
@@ -107,12 +94,12 @@ class MemoryBank(metaclass=abc.ABCMeta):
   @abc.abstractmethod
   def set_state(self, state: entity_component.ComponentState) -> None:
     """Sets the state of the memory bank.
-    
-    This is used to restore the state of the memory bank. The state is assumed 
+
+    This is used to restore the state of the memory bank. The state is assumed
     to be the one returned by `get_state`.
-    The state does not need to contain any information that is passed in the 
+    The state does not need to contain any information that is passed in the
     initialization of the memory bank (e.g. embedder, clock, imporance etc.)
-    It is assumed that set_state is called on the memory bank after it was 
+    It is assumed that set_state is called on the memory bank after it was
     initialized with the same parameters as the one used to restore it.
     The default implementation does nothing, which implies that the memory bank
     does not have any state.
@@ -130,7 +117,7 @@ class MemoryBank(metaclass=abc.ABCMeta):
       # do more with obj
       obj.set_state(state)
       # obj will now behave the same as it did before.
-    
+
     Note that the state does not need to contain any information that is passed
     in __init__ (e.g. the embedder, clock, imporance etc.)
 
