@@ -1,5 +1,3 @@
-
-
 """Classes for implementing virtual apps simulation."""
 
 import abc

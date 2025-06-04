@@ -1,5 +1,3 @@
-
-
 """A component that runs the phone scene when a phone action is detected."""
 
 from collections.abc import Sequence

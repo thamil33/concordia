@@ -1,4 +1,3 @@
-
 """A Concordia Environment Configuration."""
 
 from collections.abc import Callable, Sequence

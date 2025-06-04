@@ -1,5 +1,3 @@
-
-
 """Component that implements elections within a game master."""
 
 from collections.abc import Callable, Sequence

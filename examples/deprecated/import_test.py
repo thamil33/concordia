@@ -1,4 +1,3 @@
-
 """Tests that "import examples" will work."""
 
 from absl.testing import absltest
