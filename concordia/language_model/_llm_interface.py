@@ -1,4 +1,4 @@
-from language_model import utils
+from concordia.language_model import utils
 import numpy as np
 import sentence_transformers
 import os # Added for os.getenv in fallback for model names
@@ -128,7 +128,7 @@ def setup_embedder():
             embedder = lambda _: np.ones(3)
     return embedder
 
-def run_multiple_llm_example():
+def run_group_llm():
     print(f"DISABLE_LANGUAGE_MODEL is set to: {DISABLE_LANGUAGE_MODEL}")
 
     # Setup each model individually
@@ -198,8 +198,5 @@ def run_multiple_llm_example():
     print("\nFinished LLM instantiation and testing attempts.")
 
 if __name__ == "__main__":
-    run_multiple_llm_example()
+    run_group_llm()
     print("\nFinished LLM instantiation and testing attempts.")
-
-if __name__ == "__main__":
-    run_multiple_llm_example()

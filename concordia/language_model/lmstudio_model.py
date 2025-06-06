@@ -5,7 +5,7 @@ import requests
 from collections.abc import Collection, Mapping, Sequence
 from typing import Any
 
-from language_model import language_model
+from concordia.language_model import language_model
 
 class LMStudioLanguageModel(language_model.LanguageModel):
   """Language model implementation that uses the LMStudio local API."""
