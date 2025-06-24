@@ -18,7 +18,11 @@
 
 readonly SCRIPT_DIR="$( cd "$( dirname "$0" )" &> /dev/null && pwd )"
 readonly EXAMPLES_DIR="${SCRIPT_DIR}"/../examples
-readonly OUTPUT_DIR="$1"
+if [ -z "$1" ]; then
+  readonly OUTPUT_DIR="${SCRIPT_DIR}/../examples/converted_notebooks"
+else
+  readonly OUTPUT_DIR="$1"
+fi
 readonly TEMP_DIR="$(mktemp -d)"
 
 
@@ -47,7 +51,14 @@ function disable_ipython_magic() {
 
 
 function convert_notebooks() {
-  jupyter nbconvert --to=python --output-dir="${OUTPUT_DIR}" "${TEMP_DIR}"/*
+  for file in "${TEMP_DIR}"/*; do
+    local notebook_dir
+    notebook_dir="$(dirname "${file}")"
+    local output_dir="${notebook_dir}/converted_notebooks"
+    mkdir -p "${output_dir}"
+    echo "Converting ${file} to ${output_dir}"
+    jupyter nbconvert --to=python --output-dir="${output_dir}" "${file}"
+  done
 }
 
 
