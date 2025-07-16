@@ -6,7 +6,7 @@
 
 readonly SCRIPT_DIR="$( cd "$( dirname "$0" )" &> /dev/null && pwd )"
 readonly EXAMPLES_DIR="${SCRIPT_DIR}"/../examples
-readonly OUTPUT_DIR="$1"
+readonly OUTPUT_DIR="/python"
 readonly TEMP_DIR="$(mktemp -d)"
 
 
