@@ -1,5 +1,3 @@
-
-
 """Component that provides the default game master instructions."""
 
 from collections.abc import Sequence

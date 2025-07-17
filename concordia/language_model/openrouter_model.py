@@ -4,8 +4,6 @@ from concordia.language_model.call_limit_wrapper import CallLimitLanguageModel
 from concordia.language_model.language_model import DEFAULT_STATS_CHANNEL
 from concordia.utils import measurements as measurements_lib
 
-from concordia.language_model import no_language_model
-
 import dotenv
 import os
 
@@ -18,7 +16,7 @@ model_name = os.environ.get("OPENROUTER_MODEL", '') or 'mistralai/mistral-small-
 class OpenRouterLanguageModel(BaseOpenRouterLanguageModel):
     def __init__(
         self,
-        model_name: str,
+        model_name: str = model_name,
         api_key: str = api_key,
         measurements: measurements_lib.Measurements | None = None,
         channel: str = DEFAULT_STATS_CHANNEL,

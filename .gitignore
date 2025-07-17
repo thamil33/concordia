@@ -12,6 +12,7 @@ __pycache__/
 # Common venv names.
 /*venv/
 /venv*/
+.vscode
 
 # Ignore files created during installation and building.
 *.egg-info

@@ -1,5 +1,3 @@
-
-
 """A component to modify inventories based on events."""
 
 from collections.abc import Callable

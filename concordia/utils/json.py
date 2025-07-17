@@ -1,5 +1,3 @@
-
-
 """Json helper functions."""
 
 import json

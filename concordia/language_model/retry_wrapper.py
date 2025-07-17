@@ -1,5 +1,3 @@
-
-
 """Wrapper to retry calls to an underlying language model."""
 
 from collections.abc import Collection, Sequence, Mapping

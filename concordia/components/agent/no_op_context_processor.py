@@ -1,5 +1,3 @@
- 
-
 """A context processor component that does nothing."""
 
 from concordia.typing import entity_component

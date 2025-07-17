@@ -1,5 +1,3 @@
- 
-
 """A prefab containing the three key questions actor."""
 
 from collections.abc import Mapping

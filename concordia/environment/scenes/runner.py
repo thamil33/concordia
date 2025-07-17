@@ -1,5 +1,3 @@
-
-
 """Scene runner."""
 
 from collections.abc import Mapping, Sequence

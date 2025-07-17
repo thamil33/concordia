@@ -1,5 +1,3 @@
- 
-
 """Ollama Language Model, a wrapper for models running on the local machine."""
 
 from collections.abc import Collection, Sequence

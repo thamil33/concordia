@@ -1,5 +1,3 @@
- 
-
 """Marketplace component for Concordia, managing agents, goods, and orders."""
 
 import abc

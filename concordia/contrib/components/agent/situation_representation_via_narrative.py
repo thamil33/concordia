@@ -1,7 +1,4 @@
- 
-
-"""A component for representing the current situation via narrative.
-"""
+"""A component for representing the current situation via narrative."""
 
 from collections.abc import Callable, Mapping
 import datetime

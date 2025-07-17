@@ -1,5 +1,3 @@
-
-
 """Agent components for planning."""
 
 from collections.abc import Sequence

@@ -1,5 +1,3 @@
-
-
 """Library of components contributed by users."""
 
 from concordia.contrib.components.game_master import industrial_action

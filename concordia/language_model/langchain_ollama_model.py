@@ -1,5 +1,3 @@
- 
-
 """Langchain-based language model using ollama to run on the local machine."""
 
 from collections.abc import Collection, Sequence

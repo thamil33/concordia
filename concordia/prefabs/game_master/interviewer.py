@@ -1,5 +1,3 @@
- 
-
 """A prefab for a game master that administers questionnaires."""
 
 from collections.abc import Mapping, Sequence

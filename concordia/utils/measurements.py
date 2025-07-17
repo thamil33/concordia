@@ -1,5 +1,3 @@
-
-
 """A module that acts like a registry of measurements for experimenter use."""
 
 import copy

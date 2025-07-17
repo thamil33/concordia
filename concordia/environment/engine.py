@@ -1,7 +1,4 @@
-
-
-"""Engine base class.
-"""
+"""Engine base class."""
 
 import abc
 from collections.abc import Callable, Mapping, Sequence

@@ -1,6 +1,3 @@
-
-
-
 import functools
 from unittest import mock
 

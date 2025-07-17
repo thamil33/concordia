@@ -1,5 +1,3 @@
-
-
 """Component helping a game master pick which game master to use next."""
 
 from collections.abc import Callable, Sequence

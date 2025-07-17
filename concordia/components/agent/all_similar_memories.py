@@ -1,5 +1,3 @@
-
-
 """Return memories similar to a prompt composed of component pre_act values."""
 
 from collections.abc import Sequence

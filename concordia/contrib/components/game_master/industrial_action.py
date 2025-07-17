@@ -1,7 +1,4 @@
- 
-
-"""A component for computing pressure created through labor collective action.
-"""
+"""A component for computing pressure created through labor collective action."""
 
 from collections.abc import Callable, Mapping, Sequence
 import datetime

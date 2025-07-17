@@ -1,6 +1,3 @@
-
-
-
 """An associative memory with basic retrieval methods."""
 
 from collections.abc import Callable, Iterable, Sequence

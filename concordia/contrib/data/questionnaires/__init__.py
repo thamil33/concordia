@@ -1,5 +1,3 @@
- 
-
 """Questionnaire dictionaries."""
 
 from concordia.contrib.data.questionnaires import dass

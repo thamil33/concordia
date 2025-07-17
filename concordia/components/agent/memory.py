@@ -1,5 +1,3 @@
-
-
 """A component backed by a memory bank."""
 
 from collections.abc import Callable, Mapping, Sequence

@@ -1,5 +1,3 @@
- 
-
 """Prefab for a generic psychology experiment Game Master."""
 
 from collections.abc import Mapping, Sequence

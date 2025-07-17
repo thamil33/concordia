@@ -1,5 +1,3 @@
-
-
 """Game Master prefabs."""
 
 from concordia.prefabs.game_master import dialogic

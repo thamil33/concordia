@@ -1,5 +1,3 @@
- 
-
 """Test environment (game master) prefabs.
 """
 

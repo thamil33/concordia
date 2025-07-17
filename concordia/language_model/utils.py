@@ -1,5 +1,3 @@
-
-
 """Utilities for loading language models."""
 
 import os
@@ -19,7 +17,6 @@ from concordia.language_model import ollama_model
 from concordia.language_model import pytorch_gemma_model
 from concordia.language_model import together_ai
 from concordia.language_model import openrouter_model
-
 
 def language_model_setup(
     *,

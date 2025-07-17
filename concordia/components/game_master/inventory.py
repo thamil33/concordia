@@ -1,5 +1,3 @@
-
-
 """A game master component to represent each player's inventory."""
 
 from collections.abc import Callable, Mapping, Sequence

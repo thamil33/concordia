@@ -1,5 +1,3 @@
-
-
 """A modular entity agent using the new component system."""
 
 from collections.abc import Mapping

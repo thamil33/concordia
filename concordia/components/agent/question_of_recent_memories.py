@@ -1,5 +1,3 @@
-
-
 """Agent component for asking questions about the agent's recent memories."""
 
 from collections.abc import Callable, Collection, Sequence

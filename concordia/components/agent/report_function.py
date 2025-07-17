@@ -1,6 +1,3 @@
-
-
-
 """This components report what the function returns at the moment.
 
 For example, can be used for reporting current time

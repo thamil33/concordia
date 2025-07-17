@@ -1,5 +1,3 @@
-
-
 """Library of components specifically for generative agents."""
 
 from concordia.components.agent import action_spec_ignored

@@ -1,5 +1,3 @@
-
-
 """Component that helps a game master terminate the simulation."""
 
 from concordia.typing import entity as entity_lib

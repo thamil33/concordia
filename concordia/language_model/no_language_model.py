@@ -1,5 +1,3 @@
-
-
 """Language model that always returns empty strings and choice 0 (for debug)."""
 
 from collections.abc import Collection, Mapping, Sequence

@@ -1,5 +1,3 @@
-
-
 """Sequential (turn-based) action engine.
 """
 

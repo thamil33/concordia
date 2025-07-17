@@ -1,5 +1,3 @@
- 
-
 """Component helping a game master ask a questionnaire."""
 
 from collections.abc import Sequence

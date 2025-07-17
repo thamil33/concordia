@@ -1,5 +1,3 @@
- 
-
 """Library of components specifically for generative game masters."""
 
 from concordia.components.game_master import event_resolution

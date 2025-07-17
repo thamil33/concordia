@@ -1,5 +1,3 @@
- 
-
 """The abstract class that defines a simulation interface.
 """
 

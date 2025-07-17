@@ -1,5 +1,3 @@
-
-
 """A simple component to receive observations."""
 
 

@@ -1,5 +1,3 @@
-
-
 """A simple acting component that aggregates contexts from components."""
 
 from collections.abc import Sequence

@@ -1,6 +1,3 @@
-
-
-
 """Utilities for chain-of-thought prompting."""
 
 from collections.abc import Collection, Iterable, Iterator, Sequence

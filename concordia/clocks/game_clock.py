@@ -1,6 +1,3 @@
-
-
-
 """A clock for synchronising simulacra."""
 
 from collections.abc import Sequence

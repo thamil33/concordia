@@ -1,5 +1,3 @@
-
-
 """A component that ignores the action spec in the `pre_act` method."""
 
 import abc

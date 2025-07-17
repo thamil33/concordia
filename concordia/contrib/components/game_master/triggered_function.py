@@ -1,5 +1,3 @@
-
-
 """A component to call functions based on events."""
 
 from collections.abc import Callable

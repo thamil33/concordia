@@ -1,5 +1,3 @@
-
-
 """A game master acting component with specific calls per action type."""
 
 from collections.abc import Sequence

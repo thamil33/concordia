@@ -1,5 +1,3 @@
-
-
 """A prefab game master specialized for matrix game decisions."""
 
 from collections.abc import Callable, Mapping, Sequence

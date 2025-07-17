@@ -1,5 +1,3 @@
-
-
 """Component that provides the default role playing instructions to an agent."""
 
 from concordia.components.agent import constant

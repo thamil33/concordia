@@ -1,5 +1,3 @@
-
-
 """Entity prefabs."""
 
 from concordia.prefabs.entity import basic

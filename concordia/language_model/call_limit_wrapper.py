@@ -1,5 +1,3 @@
-
-
 """Wrapper to limit calls to an underlying language model."""
 
 from collections.abc import Collection, Mapping, Sequence

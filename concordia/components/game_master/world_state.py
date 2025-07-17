@@ -1,5 +1,3 @@
- 
-
 """A component to represent any world state variables the GM deems important."""
 
 from collections.abc import Sequence

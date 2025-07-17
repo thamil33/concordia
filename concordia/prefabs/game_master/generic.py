@@ -1,5 +1,3 @@
-
-
 """A prefab containing a generic game master."""
 
 from collections.abc import Mapping, Sequence

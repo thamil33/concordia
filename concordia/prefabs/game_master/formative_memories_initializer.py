@@ -1,5 +1,3 @@
-
-
 """A prefab containing an initializer game master to set initial memories."""
 
 from collections.abc import Mapping, Sequence

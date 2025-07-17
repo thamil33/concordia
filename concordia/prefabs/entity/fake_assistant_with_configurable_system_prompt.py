@@ -1,5 +1,3 @@
- 
-
 """This is a prefab that wraps a language model as a Concordia agent."""
 
 from collections.abc import Mapping
