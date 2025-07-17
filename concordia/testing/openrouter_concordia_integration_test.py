@@ -1,6 +1,6 @@
 import os
 import pytest
-from concordia.language_model.openrouter_model import OpenRouterLanguageModel
+from ...concordia.language_model.openrouter_model import OpenRouterLanguageModel
 import dotenv 
 
 dotenv.load_dotenv()

@@ -4,7 +4,7 @@ import functools
 import time
 
 from absl.testing import absltest
-from concordia.utils import concurrency
+from ...concordia.utils import concurrency
 
 
 class ExpectedError(Exception):
