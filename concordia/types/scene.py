@@ -7,7 +7,7 @@ import dataclasses
 import datetime
 from typing import Mapping, Union
 
-from concordia.typing import entity as entity_lib
+from concordia.types import entity as entity_lib
 
 
 @dataclasses.dataclass(frozen=True)

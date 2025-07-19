@@ -1,9 +1,8 @@
 from collections.abc import Mapping
 import dataclasses
-import numpy as np
 from IPython import display
 
-from concordia.embedding.sentence_transformer import get_embedder as sentence_transformers
+from concordia.embedding.embedd import Embedder, DummyEmbedder
 
 from concordia.agents import entity_agent_with_logging
 from concordia.associative_memory import basic_associative_memory
@@ -18,26 +17,20 @@ import concordia.prefabs.entity as entity_prefabs
 import concordia.prefabs.game_master as game_master_prefabs
 
 from concordia.prefabs.simulation import generic as simulation
-from concordia.typing.launch_simulation import SimulationLauncher
-from concordia.typing import prefab as prefab_lib
+from concordia.types.launch_simulation import SimulationLauncher
+from concordia.types import prefab as prefab_lib
 from concordia.utils import helper_functions
 from concordia.utils import llm_validation
 
-# Language Model 
+# Language Model & Embedder
 # To debug without spending money on API calls, set DISABLE_LANGUAGE_MODEL=True
 DISABLE_LANGUAGE_MODEL = False
-
-# As of now this is only being set here for reference, the env variable in .env is currently instantiating this varible 
-DUMMY_EMBEDDER=False
-#ToDo: Reintegrate dummy embedder init into the global disable_language_model variable. 
-
 if not DISABLE_LANGUAGE_MODEL:
   model = OpenRouterLanguageModel()
+  embedder = Embedder()
 else:
   model = no_language_model.NoLanguageModel()
-
-# Setup sentence encoder, embedder init is located at concordia.embedding.sentence_transformer
-embedder = sentence_transformers
+  embedder= DummyEmbedder()
 
 
 # Load prefabs from packages to make the specific palette to use here.
@@ -147,7 +140,7 @@ PLACE = 'St Andrews, Scotland'
 NUM_STATEMENTS = 10
 NAMES_TO_GENERATE = 10
 
-# Interactive document for Chain of Thought Prompting 
+# Interactive document for Chain of Thought Prompting
 # In this scenario, given the initial conditions, statements, names and a scenario are made dynamically by the LLM
 prompt = interactive_document.InteractiveDocument(model)
 
@@ -168,12 +161,12 @@ def get_statements(prompt, num_statements, place, year):
                 separator='***',
                 min_items=num_statements
             )
-            
+
             if len(statements) != num_statements:
                 print(f"Warning: Expected {num_statements} statements, got {len(statements)}")
                 if len(statements) < num_statements and attempt < max_attempts - 1:
                     raise ValueError(f"Insufficient number of statements: got {len(statements)}, expected {num_statements}")
-            
+
             print(f"Successfully generated {len(statements)} statements")
             return statements
         except ValueError as e:
@@ -297,7 +290,7 @@ instances = [
     ),
 ]
 
-# Initialize simulation config with premise, prefabs, instances and max_steps. 
+# Initialize simulation config with premise, prefabs, instances and max_steps.
 config = prefab_lib.Config(
     default_premise=premise,
     prefabs=prefabs,
@@ -305,7 +298,7 @@ config = prefab_lib.Config(
     default_max_steps=1
 )
 
-# Initialize the simulation passing the config with model and embedder. 
+# Initialize the simulation passing the config with model and embedder.
 configured_simulation = simulation.Simulation(
     config=config,
     model=model,
@@ -318,7 +311,7 @@ launcher = SimulationLauncher(
     simulation_name="actor_test_simulation"
 )
 
-# Using the SimulationLauncher, run_simulation with log output. 
+# Using the SimulationLauncher, run_simulation with log output.
 simulation_results = launcher.run_simulation(
     print_terminal_output=True,
     save_terminal_log=True,

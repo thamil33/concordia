@@ -7,7 +7,7 @@ from concordia.agents import entity_agent_with_logging
 from concordia.associative_memory import basic_associative_memory
 from concordia.components import agent as agent_components
 from concordia.language_model import language_model
-from concordia.typing import prefab as prefab_lib
+from concordia.types import prefab as prefab_lib
 
 DEFAULT_INSTRUCTIONS_COMPONENT_KEY = 'Instructions'
 DEFAULT_INSTRUCTIONS_PRE_ACT_LABEL = '\nInstructions'
@@ -133,4 +133,3 @@ class Entity(prefab_lib.Prefab):
     )
 
     return agent
-

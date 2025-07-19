@@ -23,7 +23,7 @@ Action: Picks up the apple and bites it.
 
 ---
 
-### Example 3: Agent with LLM & Basic Memory (Last 5 Observations)
+### Example 3: Agent with LLM & Context Memory (With Overflow) (Last 5 Observations)
 
 ```
 Created agent: Alice
@@ -39,7 +39,7 @@ Action: Considers eating the apple, checking the banana, or leaving both.
 
 ---
 
-### Example 4: Agent with LLM & Associative Memory + RAG (Retrieval Augmented Generation)
+### Example 4: Agent with LLM & Memory + RAG (Retrieval Augmented Generation)
 
 ```
 Created agent: Alice
@@ -65,4 +65,3 @@ Action: Avoids the apple, considers but rejects the banana, then leaves the room
 2. **Example 2**: LLMs without memory are unreliable, like a brilliant mind with severe memory loss.
 3. **Example 3**: Basic memory helps but is limited; critical information can still be forgotten.
 4. **Example 4**: LLMs with RAG and associative memory are significantly more effective, but current real-world applications are hindered by a lack of supporting logistics and infrastructure.
-

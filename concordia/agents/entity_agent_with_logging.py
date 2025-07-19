@@ -7,8 +7,8 @@ from typing import Any
 
 from concordia.agents import entity_agent
 from concordia.associative_memory import formative_memories
-from concordia.typing import entity as entity_lib
-from concordia.typing import entity_component
+from concordia.types import entity as entity_lib
+from concordia.types import entity_component
 from concordia.utils import measurements as measurements_lib
 
 

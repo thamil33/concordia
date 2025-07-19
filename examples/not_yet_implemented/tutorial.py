@@ -36,7 +36,7 @@ from concordia.prefabs.simulation import generic as simulation
 import concordia.prefabs.entity as entity_prefabs
 import concordia.prefabs.game_master as game_master_prefabs
 
-from concordia.typing import prefab as prefab_lib
+from concordia.types import prefab as prefab_lib
 from concordia.utils import helper_functions
 
 
@@ -195,13 +195,13 @@ display.HTML(results_log)
 
 # ```
 #  2024 DeepMind Technologies Limited.
-# 
+#
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
-# 
+#
 #     https://www.apache.org/licenses/LICENSE-2.0
-# 
+#
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.

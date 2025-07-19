@@ -7,8 +7,8 @@ import threading
 from concordia.components.agent import action_spec_ignored
 from concordia.document import interactive_document
 from concordia.language_model import language_model
-from concordia.typing import entity as entity_lib
-from concordia.typing import entity_component
+from concordia.types import entity as entity_lib
+from concordia.types import entity_component
 
 DEFAULT_MAKE_OBSERVATION_COMPONENT_KEY = '__make_observation__'
 DEFAULT_MAKE_OBSERVATION_PRE_ACT_LABEL = '\nPrompt'
@@ -186,9 +186,3 @@ class MakeObservation(entity_component.ContextComponent,
     """Sets the state of the component."""
     with self._lock:
       self._queue = copy.deepcopy(state['queue'])
-
-
-
-
-
-

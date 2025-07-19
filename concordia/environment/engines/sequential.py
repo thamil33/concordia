@@ -11,7 +11,7 @@ from concordia.components.game_master import next_acting as next_acting_componen
 from concordia.components.game_master import next_game_master as next_game_master_components
 from concordia.components.game_master import switch_act as switch_act_component
 from concordia.environment import engine as engine_lib
-from concordia.typing import entity as entity_lib
+from concordia.types import entity as entity_lib
 from concordia.utils import concurrency
 import termcolor
 

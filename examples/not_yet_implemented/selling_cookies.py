@@ -36,7 +36,7 @@ from concordia.prefabs.simulation import generic as simulation
 import concordia.prefabs.entity as entity_prefabs
 import concordia.prefabs.game_master as game_master_prefabs
 
-from concordia.typing import prefab as prefab_lib
+from concordia.types import prefab as prefab_lib
 from concordia.utils import helper_functions
 
 
@@ -119,7 +119,7 @@ from concordia.agents import entity_agent_with_logging
 from concordia.associative_memory import basic_associative_memory
 from concordia.components import agent as agent_components
 from concordia.language_model import language_model
-from concordia.typing import prefab as prefab_lib
+from concordia.types import prefab as prefab_lib
 
 DEFAULT_INSTRUCTIONS_COMPONENT_KEY = 'Instructions'
 DEFAULT_INSTRUCTIONS_PRE_ACT_LABEL = '\nInstructions'
@@ -229,9 +229,9 @@ prefabs['myagent__Entity'] = MyAgent()
 # In[ ]:
 
 
-from concordia.typing import scene as scene_lib
+from concordia.types import scene as scene_lib
 from collections.abc import Mapping, Sequence
-from concordia.typing import entity as entity_lib
+from concordia.types import entity as entity_lib
 
 DEFAULT_NAME = 'decision rules'
 
@@ -425,13 +425,13 @@ display.HTML(results_log)
 
 # ```
 #  2024 DeepMind Technologies Limited.
-# 
+#
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
-# 
+#
 #     https://www.apache.org/licenses/LICENSE-2.0
-# 
+#
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.

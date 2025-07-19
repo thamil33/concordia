@@ -5,8 +5,8 @@ import abc
 from collections.abc import Callable
 
 from concordia.language_model import language_model
-from concordia.typing import entity as entity_lib
-from concordia.typing import prefab as prefab_lib
+from concordia.types import entity as entity_lib
+from concordia.types import prefab as prefab_lib
 import numpy as np
 
 

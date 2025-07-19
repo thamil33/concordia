@@ -1,4 +1,4 @@
- 
+
 
 """An adaptable simulation prefab that can be configured to run any simulation.
 """
@@ -14,10 +14,10 @@ from concordia.associative_memory import basic_associative_memory as associative
 from concordia.environment import engine as engine_lib
 from concordia.environment.engines import sequential
 from concordia.language_model import language_model
-from concordia.typing import entity as entity_lib
-from concordia.typing import entity_component
-from concordia.typing import prefab as prefab_lib
-from concordia.typing import simulation as simulation_lib
+from concordia.types import entity as entity_lib
+from concordia.types import entity_component
+from concordia.types import prefab as prefab_lib
+from concordia.types import simulation as simulation_lib
 from concordia.utils import helper_functions as helper_functions_lib
 from concordia.utils import html as html_lib
 import numpy as np

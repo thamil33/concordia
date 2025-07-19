@@ -1,5 +1,3 @@
-
-
 """Concurrency helpers."""
 
 from collections.abc import Collection, Iterator, Mapping, Sequence

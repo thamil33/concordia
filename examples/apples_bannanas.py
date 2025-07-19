@@ -5,26 +5,24 @@
 # In a full Concordia experiment you'd have a _Game Master_ directing the narrative and deciding what happens in the environment, and some _agents_ interacting with the environment and each other. For this tutorial, we will focus only on the agents, as **you**, the user, will act like the Game Master.
 
 #@title Imports and initialization
-from concordia.embedding.sentence_transformer import get_embedder
-from concordia.language_model.openrouter_model import OpenRouterLanguageModel as getmodel
-from concordia.typing import entity
+from concordia.embedding.embedd import Embedder, DummyEmbedder
+from concordia.language_model.openrouter_model import OpenRouterLanguageModel
+from concordia.types import entity
 
 from concordia.associative_memory import  basic_associative_memory
 from concordia.language_model import language_model
+from concordia.language_model import no_language_model
 
-# Set up the embedder 
-embedder = get_embedder 
-# Test the embedder functionality
-test_sentence = "This is a test sentence for the embedder."
-embedding = embedder(test_sentence)
-print("===== Concordia Agent Tutorial =====")
-print(f"Embedding for test sentence: {embedding}")
-
-#Again, we simply pass our model from concordia.language_model.openrouter_model import OpenRouterLanguageModel as model
-model = getmodel()
+DISABLE_LANGUAGE_MODEL = False
+if not DISABLE_LANGUAGE_MODEL:
+  model = OpenRouterLanguageModel()
+  embedder = Embedder().encode
+else:
+  model = no_language_model.NoLanguageModel()
+  embedder = DummyEmbedder().encode
 
 # # Building a dummy agent
-# 
+#
 # We will start by creating a dummy agent that just always tries to grab an apple
 
 class DummyAgent(entity.Entity):
@@ -112,11 +110,11 @@ print("===== End Example 2 =====\n")
 
 
 # Alright! We have an agent that takes observations and attempts actions.
-# 
+#
 # ## Limitations of the `SimpleLLMAgent`
-# 
+#
 # While useful, the `SimpleLLMAgent` has some severe limitations. An obvious one is that if we push too many observations, we will lose them from context. We can increase the memory, but we are limited to the size of the LLM's context window, which, despite current models increasing this significantly from the times of 8-10k tokens, you can imagine a long running agent to run into this limit.
-# 
+#
 # Here's a toy example:
 
 # In[ ]:
@@ -234,15 +232,15 @@ print("===== End Example 4 =====\n")
 
 
 # With a better memory, Alice should not eat the apple. She'll be able to remember she hates apples, and isn't super keen on bananas either. So she might choose to eat the banana, or just leave the room, or whatever else.
-# 
+#
 # # The Entity-Component system
-# 
+#
 # In the example above we are using an `AssociativeMemory` that we didn't have to implement, that's good. But now imagine we want to add some functionality for our agent to reason about how it is feeling at the moment. Maybe they are hungy because it hasn't eaten in a while, so they would eat the banana. We can easily do that by extending the class above, but it gets cumbersome and leads to a lot of forking code!
-# 
+#
 # Instead of forking, we will be building agents using components. The idea is that an `Entity` is something that exist (explicitly, we'll talk about that later on) in the environment, but its functionality is controlled by adding components to it. This is a pattern used in many game engines called an [Entity-Component-System](https://en.wikipedia.org/wiki/Entity_component_system).
-# 
+#
 # You can think of components as a piece of the thought process of the agent. All components, together, provide the full information that is used for the agent to act in a situation.
-# 
+#
 # In this way, any modular piece of functionality in the entity can be easily reused in other agents without having to fork. So, for example, a component that retrieves relevant memories given recent observations should be useful in our example above, and in many other agents. So we create a component to handle this.
-# 
+#
 # Now you are ready for the next tutorial: [Agent tutorial](https://colab.research.google.com/github/google-deepmind/concordia/blob/main/examples/tutorials/agent_components_tutorial.ipynb)

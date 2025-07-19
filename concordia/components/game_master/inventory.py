@@ -12,8 +12,8 @@ from concordia.components.agent import memory as memory_component
 from concordia.components.agent import observation as observation_component
 from concordia.document import interactive_document
 from concordia.language_model import language_model
-from concordia.typing import entity as entity_lib
-from concordia.typing import entity_component
+from concordia.types import entity as entity_lib
+from concordia.types import entity_component
 from concordia.utils import concurrency
 from concordia.utils import helper_functions
 import numpy as np

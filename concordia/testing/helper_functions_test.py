@@ -3,8 +3,8 @@
 import unittest
 
 from absl.testing import absltest
-from ...concordia.prefabs.entity import basic
-from ...concordia.utils import helper_functions
+from concordia.prefabs.entity import basic
+from concordia.utils import helper_functions
 
 EXPECTED_OUTPUT_STANDARD_CASE = """
 ---

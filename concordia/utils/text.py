@@ -1,6 +1,3 @@
-
-
-
 """String formatting utilities."""
 
 from collections.abc import Collection

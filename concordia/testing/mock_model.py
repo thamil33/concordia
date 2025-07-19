@@ -3,7 +3,7 @@
 
 from collections.abc import Collection, Sequence
 
-from ...concordia.language_model import language_model
+from concordia.language_model import language_model
 from typing_extensions import override
 
 

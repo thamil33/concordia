@@ -4,8 +4,8 @@ import abc
 import threading
 from typing import Final, Any
 
-from concordia.typing import entity as entity_lib
-from concordia.typing import entity_component
+from concordia.types import entity as entity_lib
+from concordia.types import entity_component
 from typing_extensions import override
 
 

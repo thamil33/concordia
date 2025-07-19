@@ -1,6 +1,3 @@
-
-
-
 """Install script for setuptools."""
 
 import setuptools

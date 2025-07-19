@@ -10,9 +10,9 @@ from concordia.components.game_master import event_resolution as event_resolutio
 from concordia.components.game_master import inventory as inventory_component
 from concordia.components.game_master import switch_act
 from concordia.environment.scenes import runner as scene_runner
-from concordia.typing import entity as entity_lib
-from concordia.typing import entity_component
-from concordia.typing import logging
+from concordia.types import entity as entity_lib
+from concordia.types import entity_component
+from concordia.types import logging
 
 
 @dataclasses.dataclass
