@@ -1,13 +1,13 @@
 # A simple test of the sentence-transformers package and embedding model
 from sentence_transformers import SentenceTransformer
 import numpy as np
-import os 
+import os
 import dotenv
 
 dotenv.load_dotenv()
 
 DISABLE_LANGUAGE_MODEL = os.environ.get("DISABLE_LANGUAGE_MODEL", None)
-embedder = os.environ.get("EMBEDDER", None)
+embedder = os.environ.get("EMBEDDER", "all-MiniLM-L6-v2")
 
 def test_embedding():
     model = SentenceTransformer(embedder)

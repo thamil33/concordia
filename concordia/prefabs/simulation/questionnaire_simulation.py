@@ -1,17 +1,3 @@
-# Copyright 2025 DeepMind Technologies Limited.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     https://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
 """An adaptable simulation prefab that can be configured to run any simulation.
 """
 
@@ -26,10 +12,10 @@ from concordia.associative_memory import basic_associative_memory as associative
 from concordia.environment import engine as engine_lib
 from concordia.environment.engines import parallel
 from concordia.language_model import language_model
-from concordia.typing import entity as entity_lib
-from concordia.typing import entity_component
-from concordia.typing import prefab as prefab_lib
-from concordia.typing import simulation as simulation_lib
+from concordia.types import entity as entity_lib
+from concordia.types import entity_component
+from concordia.types import prefab as prefab_lib
+from concordia.types import simulation as simulation_lib
 from concordia.utils import helper_functions as helper_functions_lib
 from concordia.utils import html as html_lib
 import numpy as np
