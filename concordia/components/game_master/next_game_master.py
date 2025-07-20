@@ -148,6 +148,7 @@ class FormativeMemoriesInitializer(
           make_observation_component.DEFAULT_MAKE_OBSERVATION_COMPONENT_KEY
       ),
       pre_act_label: str = '',
+      sentences_per_episode: int = 5,
   ):
     """A component that generates a backstory for each player entity.
 
@@ -174,6 +175,8 @@ class FormativeMemoriesInitializer(
         to use pass the backstory memories to the players.
       pre_act_label: Prefix to add to the output of the component when called in
         `pre_act`.
+      sentences_per_episode: The maximum number of sentences to generate per
+        episode.
 
     Raises:
       ValueError: If the component order is not None and contains duplicate
@@ -189,6 +192,7 @@ class FormativeMemoriesInitializer(
     self._memory_component_key = memory_component_key
     self._make_observation_component_key = make_observation_component_key
     self._pre_act_label = pre_act_label
+    self._sentences_per_episode = sentences_per_episode
 
     self._player_specific_memories = player_specific_memories
     self._player_specific_context = player_specific_context
@@ -334,7 +338,8 @@ class FormativeMemoriesInitializer(
         'must mention their age at the time the event occurred using'
         ' language '
         f'such as "When {active_entity_name} was 5 years old, they '
-        'experienced..." . Use past tense. Write no more than five sentences '
+        'experienced..." . Use past tense. Write no more than'
+        f' {self._sentences_per_episode} sentences '
         'per episode. Separate episodes from one another by the delimiter '
         f'"{self._delimiter_symbol}". Do not apply any other '
         'special formatting besides these delimiters.'
