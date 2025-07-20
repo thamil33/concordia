@@ -1,7 +1,3 @@
-#!/bin/bash
-#
- 
-#
 # Install concordia.
 set -euxo pipefail
 cd "$(dirname "$0")/.."

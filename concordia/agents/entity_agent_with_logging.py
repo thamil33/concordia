@@ -3,7 +3,7 @@
 from collections.abc import Mapping
 import copy
 import types
-from typing import Any
+from typing import Any, Optional
 
 from concordia.agents import entity_agent
 from concordia.associative_memory import formative_memories
@@ -27,6 +27,7 @@ class EntityAgentWithLogging(entity_agent.EntityAgent,
           types.MappingProxyType({})
       ),
       config: formative_memories.AgentConfig | None = None,
+      role: Optional[str] = None,
   ):
     """Initializes the agent.
 
@@ -44,12 +45,14 @@ class EntityAgentWithLogging(entity_agent.EntityAgent,
         None, a NoOpContextProcessor will be used.
       context_components: The ContextComponents that will be used by the agent.
       config: The agent configuration, used for checkpointing and debug.
+      role: The role of the agent in the simulation (e.g., "teacher", "student").
     """
     super().__init__(agent_name=agent_name,
                      act_component=act_component,
                      context_processor=context_processor,
                      context_components=context_components)
     self._component_logging = measurements_lib.Measurements()
+    self._role = role
 
     for component_name, component in self._context_components.items():
       if isinstance(component, entity_component.ComponentWithLogging):
@@ -74,7 +77,14 @@ class EntityAgentWithLogging(entity_agent.EntityAgent,
     log: dict[str, Any] = {}
     for channel_name in sorted(self._component_logging.available_channels()):
       log[channel_name] = self._component_logging.get_last_datum(channel_name)
+    if self._role is not None:
+      log["role"] = self._role
     return log
 
   def get_config(self) -> formative_memories.AgentConfig | None:
     return copy.deepcopy(self._config)
+
+  @property
+  def role(self) -> Optional[str]:
+    """Returns the role of the agent."""
+    return self._role

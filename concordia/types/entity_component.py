@@ -1,5 +1,3 @@
-
-
 """Base classes for Entity components."""
 
 import abc

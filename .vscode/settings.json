@@ -1,7 +1,7 @@
 // See https://code.visualstudio.com/docs/getstarted/settings
 {
   // Google formatting settings.
-  "editor.rulers": [80],
+  "editor.rulers": [90],
   "editor.detectIndentation": false,
   "editor.tabSize": 2,
   "editor.insertSpaces": true,

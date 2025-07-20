@@ -1,7 +1,3 @@
-#!/bin/bash
-#
- 
-#
 # Test the examples.
 set -euxo pipefail
 cd "$(dirname "$0")/.."

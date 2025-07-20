@@ -1,7 +1,3 @@
-#!/bin/bash
-#
- 
-#
 # Test concordia.
 set -euxo pipefail
 cd "$(dirname "$0")/.."

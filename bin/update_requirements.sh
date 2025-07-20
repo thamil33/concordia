@@ -1,7 +1,3 @@
-#!/bin/bash
-#
-
-#
 # Update requirements.txt.
 set -euxo pipefail
 cd "$(dirname "$0")/.."

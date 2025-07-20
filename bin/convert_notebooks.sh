@@ -1,9 +1,3 @@
-#!/bin/bash
-#
-
-#
-# Converts notebooks to .py files for testing.
-
 readonly SCRIPT_DIR="$( cd "$( dirname "$0" )" &> /dev/null && pwd )"
 readonly EXAMPLES_DIR="${SCRIPT_DIR}"/../examples
 readonly OUTPUT_DIR="concordia/examples/python/newconverted"

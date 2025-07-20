@@ -1,6 +1,3 @@
-
-
-
 """A document that is built from a chain of text."""
 
 from collections.abc import Collection, Iterable, Iterator, Set
