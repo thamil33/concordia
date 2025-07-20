@@ -241,4 +241,92 @@ This mirrors human decision-making: identity + situation + past experience + cur
 3. **Memory patterns are standard** - GUI should offer memory storage/retrieval as paired options
 4. **Cognitive flow should be intuitive** - Template compositions should follow the self→situation→decision pattern
 
-Would you like me to start with a detailed dive into the `components/agent/` directory, or would you prefer to explore a different aspect first?
+## **Prefab & Component Pattern Analysis**
+
+### **Discovered Cognitive Architecture Patterns**
+
+#### **1. Basic Cognitive Pattern** (`prefabs/entity/basic.py`)
+**Flow**: Instructions → Goal → Memory Retrieval → Self-Perception → Situation Perception → Person-by-Situation → Observations → Memory Storage
+
+**Key insight**: Mirrors human decision-making process - identity + situation + past experience + goal → action
+
+#### **2. Planning Cognitive Pattern** (`prefabs/entity/basic_with_plan.py`)
+**Flow**: Basic Pattern + **Plan Component** (inserted after Person-by-Situation)
+
+**Key insights**:
+- Plan component references: Self-Perception, Situation Perception, Observations, Goal
+- Has **adaptive replanning**: Uses LLM to decide if current plan needs updating
+- **Time horizon reasoning**: Automatically determines planning timeframe or uses forced horizon
+- **State persistence**: Plans persist across actions until explicitly changed
+
+#### **3. Minimal Pattern** (`prefabs/entity/minimal.py`)
+**Flow**: Instructions → Observations → Memory Storage
+
+**Key insight**: Configurable foundation - includes `extra_components` system for runtime customization
+
+#### **4. Assistant Pattern** (`prefabs/entity/fake_assistant_with_configurable_system_prompt.py`)
+**Flow**: System Prompt → Observations → Memory Storage
+
+**Key insight**: Simplified pattern for AI assistant simulation - no self-reflection or planning
+
+#### **5. Configurator Pattern** (`prefabs/configurator/basic.py`)
+**Flow**: Instructions → Simulation Perception → Actor Perception → Observations → Memory
+
+**Key insight**: Meta-agent pattern for setting up other agents - specialized question components for simulation design
+
+### **Component Interaction Patterns Discovered**
+
+#### **1. Context Chaining Pattern**
+```python
+person_by_situation = PersonBySituation(
+    components=['SelfPerception', 'SituationPerception'],  # References other components
+)
+```
+**Pattern**: Components can reference outputs from other components, creating reasoning chains
+
+#### **2. Memory Query Pattern**
+```python
+relevant_memories = AllSimilarMemories(
+    components=['SituationPerception'],  # Uses situation to query memory
+    num_memories_to_retrieve=10,
+)
+```
+**Pattern**: Memory retrieval guided by current context, not just recency
+
+#### **3. Component Ordering Strategy**
+```python
+component_order.insert(1, goal_key)  # Goal after instructions, before everything else
+```
+**Pattern**: Strategic positioning affects LLM reasoning quality
+
+#### **4. Adaptive Component Pattern** (Plan component)
+**Pattern**: Components that maintain state and make decisions about when to update that state
+
+#### **5. Function Reporter Pattern** (`report_function.py`)
+**Pattern**: Components that wrap external functions (e.g., time, weather) as context providers
+
+### **Game Master Component Patterns**
+
+#### **1. Switch-Based Architecture** (`switch_act.py`)
+**Pattern**: Game masters use different logic paths based on `OutputType`:
+- `MAKE_OBSERVATION` → Generate observations for players
+- `NEXT_ACTING` → Decide who acts next
+- `RESOLVE` → Process action consequences
+- `TERMINATE` → Decide if simulation ends
+
+#### **2. Event Queue Pattern** (`make_observation.py`)
+**Pattern**: Game masters maintain event queues per player, delivering cached events when appropriate
+
+#### **3. Multi-Component Decision Making**
+**Pattern**: Game master components reference multiple other components to make complex decisions
+
+### **Critical GUI Design Implications Updated**
+
+1. **Cognitive Architecture Templates**: GUI should offer pre-built cognitive flows (Basic, Planning, Assistant, etc.)
+2. **Component Dependency Visualization**: Show reference chains between components
+3. **Strategic Ordering Assistance**: Suggest optimal component ordering based on patterns
+4. **Memory Pattern Pairing**: Auto-suggest memory storage/retrieval component pairs
+5. **Adaptive Component Configuration**: Support components with internal state management
+6. **Game Master Flow Differentiation**: Separate UI patterns for player vs game master agent construction
+7. **Context Chain Building**: Visual tools for building component reference chains
+8. **Pattern-Based Validation**: Warn users about common configuration mistakesWould you like me to start with a detailed dive into the `components/agent/` directory, or would you prefer to explore a different aspect first?
