@@ -1,7 +1,6 @@
 ---
 applyTo: '**'
 ---
-Refer to `documentation\README.md` for specific instructions for this workspace.
+source code: `concordia`
 
-***IMPORTANT***
-# DO NOT RUSH IMPLEMENTATION, CHECK YOUR WORK WITH EXAMPLES, WEBSEARCH, OR ASK CLARIFICATION QUESTIONS FROM THE USER. DO NOT CREATE CARELESS INCORRECT CODE. ACCURACY AND CONFORMANCE TO CONCORDIA SOURCE IS PARAMOUNT. SLOW AND STEADY WINS THE RACE!
+Concordia Documentation: `_storage\concordia_docs`, which also contains a detailed `Overview.md` and an `Index.md` for the documentation.

@@ -1,5 +1,3 @@
-
-
 """An adaptable simulation prefab that can be configured to run any simulation.
 """
 
