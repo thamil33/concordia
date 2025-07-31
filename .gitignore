@@ -28,3 +28,7 @@ __pycache__/
 
 # Type checking
 .pytype
+
+_storage
+.github
+.vscode

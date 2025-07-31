@@ -23,8 +23,8 @@ setuptools.setup(
     license_files=['LICENSE'],
     url='https://github.com/google-deepmind/concordia',
     download_url='https://github.com/google-deepmind/concordia/releases',
-    author='DeepMind',
-    author_email='noreply@google.com',
+    author='DeepMind | Tyler Hamilton',
+    author_email='tyler.hamilton9897@gmail.com',
     description=(
         'A library for building a generative model of social interacions.'
     ),
