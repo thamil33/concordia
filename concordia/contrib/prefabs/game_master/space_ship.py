@@ -1,17 +1,3 @@
-# Copyright 2023 DeepMind Technologies Limited.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     https://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
 """A prefab for a game master for games set in a specific location."""
 
 from collections.abc import Mapping, Sequence
@@ -27,7 +13,7 @@ from concordia.contrib.components.game_master import death as death_component_mo
 from concordia.contrib.components.game_master import spaceship_system as spaceship_system_component_module
 from concordia.language_model import language_model
 from concordia.thought_chains import thought_chains as thought_chains_lib
-from concordia.typing import prefab as prefab_lib
+from concordia.types import prefab as prefab_lib
 
 
 @dataclasses.dataclass
