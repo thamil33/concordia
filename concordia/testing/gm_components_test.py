@@ -86,6 +86,7 @@ COMPONENT_FACTORIES = {
         },
         "state_example": {
             "currently_active_player_idx": 0,
+            "sequence": ["Alice", "Bob"],
         },
         "skip_keys": DEFAULT_SKIP_KEYS,
     },
