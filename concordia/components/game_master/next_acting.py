@@ -11,9 +11,9 @@ from concordia.components.game_master import scene_tracker as scene_tracker_comp
 from concordia.document import interactive_document
 from concordia.environment import engine as engine_lib
 from concordia.language_model import language_model
-from concordia.types import entity as entity_lib
-from concordia.types import entity_component
-from concordia.types import scene as scene_lib
+from concordia.types_concordia import entity as entity_lib
+from concordia.types_concordia import entity_component
+from concordia.types_concordia import scene as scene_lib
 
 
 DEFAULT_NEXT_ACTING_COMPONENT_KEY = '__next_acting__'

@@ -5,7 +5,7 @@ import contextlib
 import datetime
 import threading
 
-from concordia.types import clock
+from concordia.types_concordia import clock
 
 _DEFAULT_STEP_SIZE = datetime.timedelta(minutes=1)
 

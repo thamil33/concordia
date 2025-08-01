@@ -4,7 +4,7 @@ from collections.abc import Callable, Iterable, Sequence
 import io
 import threading
 
-from concordia.types import entity_component
+from concordia.types_concordia import entity_component
 import numpy as np
 import pandas as pd
 

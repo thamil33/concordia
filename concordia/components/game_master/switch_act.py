@@ -9,8 +9,8 @@ from concordia.components.game_master import next_game_master as next_game_maste
 from concordia.components.game_master import terminate as terminate_components
 from concordia.document import interactive_document
 from concordia.language_model import language_model
-from concordia.types import entity as entity_lib
-from concordia.types import entity_component
+from concordia.types_concordia import entity as entity_lib
+from concordia.types_concordia import entity_component
 from typing_extensions import override
 
 

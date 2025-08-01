@@ -6,9 +6,9 @@ from concordia.components.game_master import make_observation as make_observatio
 from concordia.components.game_master import next_game_master as next_game_master_component_module
 from concordia.components.game_master import terminate as terminate_component_module
 from concordia.language_model import language_model
-from concordia.types import entity as entity_lib
-from concordia.types import entity_component
-from concordia.types import scene as scene_lib
+from concordia.types_concordia import entity as entity_lib
+from concordia.types_concordia import entity_component
+from concordia.types_concordia import scene as scene_lib
 
 _SCENE_COUNTER_TAG = '[scene counter]'
 

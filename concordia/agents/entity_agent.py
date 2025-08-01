@@ -9,8 +9,8 @@ import types
 from typing import cast
 
 from concordia.components.agent import no_op_context_processor
-from concordia.types import entity
-from concordia.types import entity_component
+from concordia.types_concordia import entity
+from concordia.types_concordia import entity_component
 from concordia.utils import concurrency
 from typing_extensions import override
 

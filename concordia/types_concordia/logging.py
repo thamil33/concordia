@@ -5,7 +5,7 @@
 from collections.abc import Mapping, Sequence
 import dataclasses
 from typing import Any, Callable
-from concordia.types import entity as entity_lib
+from concordia.types_concordia import entity as entity_lib
 
 LoggingChannel = Callable[[Mapping[str, Any]], None]
 

@@ -9,8 +9,8 @@ from typing import Any, Dict, List, Optional, Tuple
 
 from concordia.components.game_master import event_resolution
 from concordia.contrib.data.questionnaires import base_questionnaire
-from concordia.types import entity as entity_lib
-from concordia.types import entity_component
+from concordia.types_concordia import entity as entity_lib
+from concordia.types_concordia import entity_component
 import pandas as pd
 
 

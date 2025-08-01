@@ -17,8 +17,8 @@ from concordia.prefabs.game_master import formative_memories_initializer
 from concordia.prefabs.game_master import game_theoretic_and_dramaturgic
 from concordia.prefabs.game_master import generic
 from concordia.prefabs.game_master import situated
-from concordia.types import entity as entity_lib
-from concordia.types import scene as scene_lib
+from concordia.types_concordia import entity as entity_lib
+from concordia.types_concordia import scene as scene_lib
 import numpy as np
 
 

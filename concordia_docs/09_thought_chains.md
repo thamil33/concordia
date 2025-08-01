@@ -207,7 +207,7 @@ class Conversation:
 
 ## 🎲 **Narrative Enhancement Patterns**
 
-### **Action Categorization** - RPG-Style Action Types
+### **Action Categorization** - RPG-Style Action types_concordia
 ```python
 def get_action_category_and_player_capability(chain_of_thought, event, active_player_name):
     """Categorize actions using tabletop RPG framework."""
@@ -218,7 +218,7 @@ def get_action_category_and_player_capability(chain_of_thought, event, active_pl
     )
 
     # Each category has detailed description
-    chain_of_thought.statement('Action types:\n1. Confess -- expose inner thoughts...')
+    chain_of_thought.statement('Action types_concordia:\n1. Confess -- expose inner thoughts...')
 
     category_idx = chain_of_thought.multiple_choice_question(
         f'What category does {active_player_name}\'s action fall into?',
@@ -346,7 +346,7 @@ event_resolution_steps = [
 Thought chains are **building blocks for complex reasoning**:
 - **Single responsibility**: Each function handles one reasoning aspect
 - **Composable**: Chain functions together for complex workflows
-- **Reusable**: Same functions used across different game master types
+- **Reusable**: Same functions used across different game master types_concordia
 - **Configurable**: Game masters can specify custom chain combinations
 
 ### 🎭 **Narrative Intelligence**

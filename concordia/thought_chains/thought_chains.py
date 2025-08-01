@@ -9,7 +9,7 @@ import random
 from concordia.agents import entity_agent
 from concordia.document import interactive_document
 from concordia.language_model import language_model
-from concordia.types import entity as entity_lib
+from concordia.types_concordia import entity as entity_lib
 import termcolor
 
 

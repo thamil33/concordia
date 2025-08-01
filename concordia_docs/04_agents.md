@@ -75,7 +75,7 @@ Components participate in agent lifecycle phases:
 - **POST_OBSERVE**: Processing observations
 - **UPDATE**: State updates and maintenance
 
-## Agent Types and Patterns
+## Agent types_concordia and Patterns
 
 ### Player Agents
 Represent individual participants in simulations:

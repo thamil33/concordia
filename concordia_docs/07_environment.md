@@ -30,7 +30,7 @@ def get_state() -> dict
 
 ### Engine Implementations
 
-Different engine types handle specific simulation scenarios:
+Different engine types_concordia handle specific simulation scenarios:
 
 #### Sequential Engine ([`concordia/environment/engines/sequential.py`](../../../concordia/environment/engines/sequential.py))
 **Pattern**: Turn-based agent interactions
@@ -77,7 +77,7 @@ Scenes define simulation structure:
 - **Objectives**: Goals or outcomes for the scene
 - **Progression rules**: How the scene advances
 
-### Scene Types
+### Scene types_concordia
 
 #### Fixed Scenes
 Predefined interaction patterns:

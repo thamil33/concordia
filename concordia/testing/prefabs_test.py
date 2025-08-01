@@ -9,7 +9,7 @@ from concordia.prefabs.entity import basic
 from concordia.prefabs.entity import basic_with_plan
 from concordia.prefabs.entity import fake_assistant_with_configurable_system_prompt
 from concordia.prefabs.entity import minimal
-from concordia.types import entity as entity_lib
+from concordia.types_concordia import entity as entity_lib
 import numpy as np
 
 

@@ -11,7 +11,7 @@ The clock system provides optional time coordination for Concordia simulations. 
 
 ## Core Clock Implementation
 
-### GameClock Interface ([`concordia/types/clock.py`](../../../concordia/types/clock.py))
+### GameClock Interface ([`concordia/types_concordia/clock.py`](../../../concordia/types_concordia/clock.py))
 
 **Purpose**: Abstract interface for simulation time coordination
 

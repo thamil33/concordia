@@ -4,7 +4,7 @@ import abc
 from collections.abc import Callable, Mapping, Sequence
 from typing import Any
 
-from concordia.types import entity as entity_lib
+from concordia.types_concordia import entity as entity_lib
 
 _TYPE_SKIP_THIS_STEP = 'type: __SKIP_THIS_STEP__'
 

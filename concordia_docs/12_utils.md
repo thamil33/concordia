@@ -113,7 +113,7 @@ Sampling utilities enable:
 ## Best Practices
 
 ### Measurements Collection
-1. **Use Descriptive Channels**: Clear naming for different measurement types
+1. **Use Descriptive Channels**: Clear naming for different measurement types_concordia
 2. **Thread Safety**: Leverage built-in locking for concurrent access
 3. **Data Consistency**: Maintain consistent data formats within channels
 4. **Resource Management**: Close channels when no longer needed

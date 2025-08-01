@@ -13,7 +13,7 @@ from concordia.contrib.components.game_master import death as death_component_mo
 from concordia.contrib.components.game_master import spaceship_system as spaceship_system_component_module
 from concordia.language_model import language_model
 from concordia.thought_chains import thought_chains as thought_chains_lib
-from concordia.types import prefab as prefab_lib
+from concordia.types_concordia import prefab as prefab_lib
 
 
 @dataclasses.dataclass

@@ -28,7 +28,7 @@ Thought Chains compose InteractiveDocument operations into sophisticated reasoni
 
 ### 1. Foundation Layer
 
-#### **Types System** (`types/`)
+#### **types_concordia System** (`types_concordia/`)
 - **Entity Interface**: Base entity contracts and behaviors
 - **Component Interface**: Standardized component architecture
 - **Type Safety**: Comprehensive type definitions for all framework interactions

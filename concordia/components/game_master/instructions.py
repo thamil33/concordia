@@ -5,7 +5,7 @@ import random
 
 from concordia.components.agent import constant
 from concordia.environment.engines import sequential
-from concordia.types import logging
+from concordia.types_concordia import logging
 
 
 DEFAULT_INSTRUCTIONS_PRE_ACT_LABEL = 'Game master instructions: '

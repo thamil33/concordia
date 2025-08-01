@@ -3,7 +3,7 @@
 import json
 
 from concordia.agents import entity_agent_with_logging
-from concordia.types import entity_component
+from concordia.types_concordia import entity_component
 
 
 def save_to_json(

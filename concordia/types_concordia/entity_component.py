@@ -6,8 +6,8 @@ import enum
 import functools
 from typing import TypeVar
 
-from concordia.types import entity as entity_lib
-from concordia.types import logging as logging_lib
+from concordia.types_concordia import entity as entity_lib
+from concordia.types_concordia import logging as logging_lib
 
 
 ComponentName = str

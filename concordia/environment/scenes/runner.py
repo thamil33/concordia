@@ -6,9 +6,9 @@ from typing import Any
 from concordia.agents import entity_agent
 from concordia.components.agent import memory as memory_component
 from concordia.components.agent import observation as observation_component
-from concordia.types import clock as game_clock
-from concordia.types import logging as logging_lib
-from concordia.types import scene as scene_lib
+from concordia.types_concordia import clock as game_clock
+from concordia.types_concordia import logging as logging_lib
+from concordia.types_concordia import scene as scene_lib
 from concordia.utils import json as json_lib
 
 _SCENE_TYPE_TAG = '[scene type]'

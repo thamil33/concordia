@@ -2,12 +2,12 @@
 
 The component system works through a **context-passing pipeline** that's more sophisticated than typical plugin architectures.
 
-## Component Types & Roles
+## Component types_concordia & Roles
 
 ### ActingComponent ([`concordia/components/agent/concat_act_component.py`](../../../concordia/components/agent/concat_act_component.py))
 - **Role**: The "decision maker" - combines all context into final actions
 - **Key insight**: It doesn't make decisions itself, it orchestrates other components' inputs
-- **How it works**: Receives [`ComponentContextMapping`](../../../concordia/types/entity_component.py) (dict of component_name → context_string), concatenates them in specified order, feeds to LLM
+- **How it works**: Receives [`ComponentContextMapping`](../../../concordia/types_concordia/entity_component.py) (dict of component_name → context_string), concatenates them in specified order, feeds to LLM
 
 ### ContextComponent
 Components like [`observation.py`](../../../concordia/components/agent/observation.py), [`question_of_recent_memories.py`](../../../concordia/components/agent/question_of_recent_memories.py):
@@ -116,7 +116,7 @@ component_order.insert(1, goal_key)  # Goal after instructions, before everythin
 ## Game Master Component Patterns
 
 ### 1. Switch-Based Architecture ([`concordia/components/game_master/switch_act.py`](../../../concordia/components/game_master/switch_act.py))
-**Pattern**: Game masters use different logic paths based on [`OutputType`](../../../concordia/types/entity.py):
+**Pattern**: Game masters use different logic paths based on [`OutputType`](../../../concordia/types_concordia/entity.py):
 - `MAKE_OBSERVATION` → Generate observations for players
 - `NEXT_ACTING` → Decide who acts next
 - `RESOLVE` → Process action consequences

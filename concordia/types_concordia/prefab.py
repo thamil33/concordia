@@ -10,7 +10,7 @@ from typing import ClassVar
 
 from concordia.associative_memory import basic_associative_memory
 from concordia.language_model import language_model
-from concordia.types import entity_component
+from concordia.types_concordia import entity_component
 
 
 class Role(enum.StrEnum):

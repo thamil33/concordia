@@ -8,7 +8,7 @@ current_time_component = ReportFunction(
 
 from typing import Callable
 from concordia.components.agent import action_spec_ignored
-from concordia.types import entity_component
+from concordia.types_concordia import entity_component
 
 DEFAULT_PRE_ACT_LABEL = 'Report'
 

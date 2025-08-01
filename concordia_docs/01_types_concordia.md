@@ -1,11 +1,11 @@
-# Types System Analysis
+# Types_Concordia System Analysis
 
-The types module defines the fundamental abstractions and interfaces that enable Concordia's modular, component-based architecture. This is the foundational layer that everything else builds upon.
+The types_concordia module defines the fundamental abstractions and interfaces that enable Concordia's modular, component-based architecture. This is the foundational layer that everything else builds upon.
 
 ## Core Architectural Insights
 
 ### 🏗️ **Entity-Component-System Foundation**
-The types system reveals Concordia's true architectural pattern:
+The types_concordia system reveals Concordia's true architectural pattern:
 - **Entities**: Independent actors (agents, game masters) that can observe and act
 - **Components**: Modular building blocks that provide specific functionality
 - **System**: Coordination framework managing entity lifecycles and interactions
@@ -23,7 +23,7 @@ This enables predictable, coordinated reasoning across multiple components.
 
 ## Core Type Definitions
 
-### Component Interface ([`concordia/types/component.py`](../../../concordia/types/component.py))
+### Component Interface ([`concordia/types_concordia/component.py`](../../../concordia/types_concordia/component.py))
 
 **Purpose**: Base abstraction for all cognitive and coordination components
 
@@ -52,9 +52,9 @@ def update(self) -> None
 - **Memory Integration**: Components can maintain internal state across simulation time
 - **Observational Learning**: `observe()` enables components to learn from environment
 
-### Entity System ([`concordia/types/entity.py`](../../../concordia/types/entity.py))
+### Entity System ([`concordia/types_concordia/entity.py`](../../../concordia/types_concordia/entity.py))
 
-**Purpose**: Defines actors that participate in simulations with configurable action types
+**Purpose**: Defines actors that participate in simulations with configurable action types_concordia
 
 **Action Type System**:
 ```python
@@ -72,7 +72,7 @@ class OutputType(str, enum.Enum):
 
 **ActionSpec System**:
 - **Call to Action**: Template for prompting entity responses
-- **Output Validation**: Ensures responses conform to expected types
+- **Output Validation**: Ensures responses conform to expected types_concordia
 - **Option Constraints**: Enforces valid choices for multiple choice actions
 - **Tagging System**: Categorizes actions for memory storage (e.g., 'action', 'speech')
 
@@ -87,7 +87,7 @@ def observe(self, observation: str) -> None
     # Process environmental feedback
 ```
 
-### Advanced Component Architecture ([`concordia/types/entity_component.py`](../../../concordia/types/entity_component.py))
+### Advanced Component Architecture ([`concordia/types_concordia/entity_component.py`](../../../concordia/types_concordia/entity_component.py))
 
 **Purpose**: Sophisticated component system with lifecycle management and state persistence
 
@@ -110,7 +110,7 @@ class Phase(enum.Enum):
 - **POST_OBSERVE** → **UPDATE** (observation integration)
 - **UPDATE** → **READY** (state synchronization)
 
-#### Component Types
+#### Component types_concordia
 
 **ContextComponent**: Standard cognitive components
 ```python
@@ -166,7 +166,7 @@ EntityState = Mapping[str, ComponentState | Mapping[str, ComponentState]]
 - Enables simulation checkpointing and rollback
 - Supports analysis and debugging of agent behavior over time
 
-## Scene System ([`concordia/types/scene.py`](../../../concordia/types/scene.py))
+## Scene System ([`concordia/types_concordia/scene.py`](../../../concordia/types_concordia/scene.py))
 
 **Purpose**: Structured interaction frameworks for organizing simulations
 
@@ -193,12 +193,12 @@ class SceneSpec:
 ```
 
 **Key Insights**:
-- **Template System**: Scene types define reusable interaction patterns
+- **Template System**: Scene types_concordia define reusable interaction patterns
 - **Instance Customization**: Scene specs customize templates for specific scenarios
 - **Time Coordination**: Scenes can advance simulation time automatically
 - **Participant Filtering**: Flexible participant selection from eligible pools
 
-## Configuration System ([`concordia/types/prefab.py`](../../../concordia/types/prefab.py))
+## Configuration System ([`concordia/types_concordia/prefab.py`](../../../concordia/types_concordia/prefab.py))
 
 **Purpose**: Factory pattern for assembling entities with consistent configurations
 
@@ -238,23 +238,23 @@ class Config:
 
 **Key Insights**:
 - **Factory Pattern**: Prefabs encapsulate entity assembly logic
-- **Role-Based Organization**: Clear separation of entity types and responsibilities
+- **Role-Based Organization**: Clear separation of entity types_concordia and responsibilities
 - **Parameter Injection**: Flexible customization through parameter mapping
 - **Dependency Injection**: Prefabs receive required resources (model, memory)
 
 ## Supporting Systems
 
-### Simulation Interface ([`concordia/types/simulation.py`](../../../concordia/types/simulation.py))
+### Simulation Interface ([`concordia/types_concordia/simulation.py`](../../../concordia/types_concordia/simulation.py))
 - **Entity Management**: Add/retrieve game masters and entities
 - **Execution Framework**: `play()` method for running simulations
 - **Resource Configuration**: Language models and embedders
 
-### Clock System ([`concordia/types/clock.py`](../../../concordia/types/clock.py))
+### Clock System ([`concordia/types_concordia/clock.py`](../../../concordia/types_concordia/clock.py))
 - **Time Progression**: Advance simulation through discrete timesteps
 - **Scheduling**: Set specific times for scene transitions
 - **Step Tracking**: Monitor simulation progress
 
-### Logging System ([`concordia/types/logging.py`](../../../concordia/types/logging.py))
+### Logging System ([`concordia/types_concordia/logging.py`](../../../concordia/types_concordia/logging.py))
 - **Metric Definitions**: Structured evaluation criteria
 - **Channel Pattern**: Flexible logging output destinations
 - **Component Integration**: Built-in logging support for components
@@ -289,4 +289,4 @@ Flexible action generation:
 - **Constraint Enforcement**: Option validation for choice actions
 - **Tagging System**: Categorized action storage
 
-The types system reveals Concordia as a sophisticated cognitive architecture framework with formal guarantees around component interaction, state management, and entity coordination. This foundation enables the complex emergent behaviors seen in the component and prefab systems.
+The types_concordia system reveals Concordia as a sophisticated cognitive architecture framework with formal guarantees around component interaction, state management, and entity coordination. This foundation enables the complex emergent behaviors seen in the component and prefab systems.

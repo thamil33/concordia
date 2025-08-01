@@ -5,7 +5,7 @@ from collections.abc import Sequence
 from concordia.components.agent import action_spec_ignored
 from concordia.document import interactive_document
 from concordia.language_model import language_model
-from concordia.types import entity_component
+from concordia.types_concordia import entity_component
 
 DEFAULT_PRE_ACT_LABEL = 'Plan'
 

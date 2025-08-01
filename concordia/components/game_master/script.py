@@ -4,8 +4,8 @@ from collections.abc import Sequence
 from typing import Dict
 
 from concordia.components.game_master import event_resolution
-from concordia.types import entity as entity_lib
-from concordia.types import entity_component
+from concordia.types_concordia import entity as entity_lib
+from concordia.types_concordia import entity_component
 
 PUTATIVE_EVENT_TAG = event_resolution.PUTATIVE_EVENT_TAG
 

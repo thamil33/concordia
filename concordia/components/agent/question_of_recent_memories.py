@@ -7,8 +7,8 @@ from concordia.components.agent import action_spec_ignored
 from concordia.components.agent import memory as memory_component
 from concordia.document import interactive_document
 from concordia.language_model import language_model
-from concordia.types import entity as entity_lib
-from concordia.types import entity_component
+from concordia.types_concordia import entity as entity_lib
+from concordia.types_concordia import entity_component
 
 
 SELF_PERCEPTION_QUESTION = (

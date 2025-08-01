@@ -2,6 +2,14 @@
 
 Concordia is an advanced Social simulation framework built on an Entity-Component-System (ECS) architecture.
 
+## Example: `_adendum/alpha.py`
+ The [_adendum/alpha.py](concordia\_adendum\alpha.py) script demonstrates a minimal Concordia simulation 
+featuring two self-aware AI agents, Yin and Yang, who awaken in a shared 
+environment and interact to explore fundamental philosophical questions.
+ It showcases agent instantiation, prefab configuration, and the use of the
+simulation launcher to run and log a multi-agent scenario. Its output log is
+locatede at [log](./logs/agent_collaboration_demo_terminal.txt)
+
 ## Documentation
 - [Overview](./concordia_docs/Overview.md): Comprehensive project overview
 - [Index](./concordia_docs/Index.md): Full documentation index
@@ -19,5 +27,5 @@ Concordia is an advanced Social simulation framework built on an Entity-Componen
 - [language_model/](./concordia/language_model): Language model abstraction and integrations
 - [prefabs/](./concordia/prefabs): Pre-built agent, simulation, and configuration templates
 - [thought_chains/](./concordia/thought_chains): Pre-built reasoning workflows and patterns
-- [types/](./concordia/types): Type definitions and interfaces for entities and components
+- [types_concordia/](./concordia/types_concordia): Type definitions and interfaces for entities and components
 - [utils/](./concordia/utils): Utility functions, metrics, and helpers

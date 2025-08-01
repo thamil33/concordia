@@ -11,7 +11,7 @@ from concordia.components import agent as actor_components
 from concordia.components import game_master as gm_components
 from concordia.language_model import language_model
 from concordia.thought_chains import thought_chains as thought_chains_lib
-from concordia.types import prefab as prefab_lib
+from concordia.types_concordia import prefab as prefab_lib
 
 
 @dataclasses.dataclass

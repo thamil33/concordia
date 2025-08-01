@@ -1,22 +1,22 @@
-# Agent Interaction:
+# 1 Agent Interaction:
 Should Yin and Yang be able to communicate directly, or only through environmental events?
 
 Do you want their interactions to be fully autonomous, or will you script some initial exchanges?
 
-# Environment:
+# 2 Environment:
 What kind of environment will they interact with?
  Is it a simple text-based world, or do you want to model objects/events they can perceive and act upon?
 
-# Questioning Phase:
+# 3 Questioning Phase:
 Should the questioning happen automatically at the end of the simulation, or do you want a separate agent (game_master) to prompt them?
 Should the answers be generated using their memory/history, or do you want to provide them with a specific context for answering?
 
-# Game Master Role:
+# 4 Game Master Role:
 
 Will the game_master only ask questions, or also control/modify the environment or agents during the simulation?
 
 
-# Agent Memory:
+# 5 Agent Memory:
 
 Should Yin and Yang have persistent memory of their experiences, or only short-term context?
 
@@ -34,8 +34,5 @@ Should Yin and Yang have persistent memory of their experiences, or only short-t
 
 5) yes, we want to fully implement the assosciative memory as well as the component memory available to entities, I believe per concordia source that the game_master's and actors will have seperate memory banks... I am not certain about how it works for the actors.
 
-As for your insights that still have relevancy:
-
-- Especially initially, we want as much visibility and logging as we can implement.
-
+Relevant Insights:
 - As far as the scripted vs autonomous direction... we will keep things open at first, and if certain aspects require more structure we will adjust as needed. For instance, I imagine at soe point once the environment builds in complexity, we will set up some initial memories for each actor (yin and yang), or perhaps even them both seperate fragmented memories (small things they remember about the time before they just became self-aware), which could be complimentary if they collaborated on to piece together.. just as an example.

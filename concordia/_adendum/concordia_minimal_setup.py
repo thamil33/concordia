@@ -3,9 +3,9 @@ from concordia.embedding.embedd import Embedder, DummyEmbedder
 from concordia.language_model.openrouter_model import OpenRouterLanguageModel
 from concordia.language_model import no_language_model
 
-from concordia.types import prefab as prefab_lib
+from concordia.types_concordia import prefab as prefab_lib
 from concordia.prefabs.simulation import generic as simulation
-from concordia.types.launch_simulation import SimulationLauncher
+from concordia.types_concordia.launch_simulation import SimulationLauncher
 
 # Language Model & Embedder setup
 DISABLE_LANGUAGE_MODEL = False

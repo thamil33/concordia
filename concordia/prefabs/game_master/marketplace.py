@@ -9,7 +9,7 @@ from concordia.associative_memory import basic_associative_memory
 from concordia.components import agent as actor_components
 from concordia.components import game_master as gm_components
 from concordia.language_model import language_model
-from concordia.types import prefab as prefab_lib
+from concordia.types_concordia import prefab as prefab_lib
 
 
 def _get_class_name(object_: object) -> str:
