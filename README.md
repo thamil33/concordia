@@ -36,5 +36,5 @@ located at [log](./logs/agent_collaboration_demo_terminal.txt)
 ## Installation 
 -The Repo can easily be installed in python 3.11+ by using the command:
 ``` bash
-pip install -e .`
+pip install -e .
 ```
