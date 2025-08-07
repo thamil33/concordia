@@ -1,4 +1,4 @@
-"""Base class for GPT models (OpenAI)."""
+"""Base class for GPT Models and OpenAI Compatible API's like OpenRouter."""
 
 from collections.abc import Collection
 from collections.abc import Sequence
