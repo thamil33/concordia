@@ -1,6 +1,7 @@
-"""Base class for GPT models (OpenAI and Azure)."""
+"""Base class for GPT models (OpenAI)."""
 
-from collections.abc import Collection, Sequence
+from collections.abc import Collection
+from collections.abc import Sequence
 
 from concordia.language_model import language_model
 from concordia.utils import sampling
@@ -9,12 +10,11 @@ from openai import AzureOpenAI
 from openai import OpenAI
 from typing_extensions import override
 
-
 _MAX_MULTIPLE_CHOICE_ATTEMPTS = 20
 
 
-class BaseGPTModel(language_model.LanguageModel):
-  """Base class for GPT models (OpenAI and Azure)."""
+class BaseOpenAICompatibleModel(language_model.LanguageModel):
+  """Base class for OpenAI-compatible models."""
 
   def __init__(
       self,
@@ -40,8 +40,8 @@ class BaseGPTModel(language_model.LanguageModel):
       timeout: float = language_model.DEFAULT_TIMEOUT_SECONDS,
       seed: int | None = None,
   ) -> str:
-    # Limit tokens to 4000 for GPT models
-    max_tokens = min(max_tokens, 4000)
+    # Limit tokens to 4000
+    max_tokens = min(max_tokens, 2000)
 
     messages = [
         {
