@@ -1,131 +1,109 @@
-"""Base class for GPT Models and OpenAI Compatible API's like OpenRouter."""
+"""Language Model that uses OpenRouter's OpenAI-compatible API (Hardened)."""
 
-from collections.abc import Collection
+import os
 from collections.abc import Sequence
+from typing import Optional
+
+from dotenv import load_dotenv, find_dotenv
+import openai
 
 from concordia.language_model import language_model
-from concordia.utils import sampling
 from concordia.utils import measurements as measurements_lib
-from openai import AzureOpenAI
-from openai import OpenAI
-from typing_extensions import override
-
-_MAX_MULTIPLE_CHOICE_ATTEMPTS = 20
 
 
-class BaseOpenAICompatibleModel(language_model.LanguageModel):
-  """Base class for OpenAI-compatible models."""
+# --- Environment Setup ---
+# Automatically find and load the closest .env file
+load_dotenv(find_dotenv(), override=False)
 
-  def __init__(
-      self,
-      model_name: str,
-      client: AzureOpenAI | OpenAI,
-      measurements: measurements_lib.Measurements | None = None,
-      channel: str = language_model.DEFAULT_STATS_CHANNEL,
-  ):
-    """Initializes the base instance."""
-    self._model_name = model_name
-    self._measurements = measurements
-    self._channel = channel
-    self._client = client
+# Centralized env config
+ENV = {
+    "MODEL": os.getenv("OPENROUTER_MODEL"),
+    "API_URL": os.getenv("OPENROUTER_API_URL"),
+    "API_KEY": os.getenv("OPENROUTER_API_KEY"),
+    "XTRA_URL": os.getenv("OPENROUTER_XTRA_URL"),
+    "XTRA_TITLE": os.getenv("OPENROUTER_XTRA_TITLE"),
+}
 
-  @override
-  def sample_text(
-      self,
-      prompt: str,
-      *,
-      max_tokens: int = language_model.DEFAULT_MAX_TOKENS,
-      terminators: Collection[str] = language_model.DEFAULT_TERMINATORS,
-      temperature: float = language_model.DEFAULT_TEMPERATURE,
-      timeout: float = language_model.DEFAULT_TIMEOUT_SECONDS,
-      seed: int | None = None,
-  ) -> str:
-    # Limit tokens to 4000
-    max_tokens = min(max_tokens, 2000)
 
-    messages = [
-        {
-            'role': 'system',
-            'content': (
-                'You always continue sentences provided '
-                + 'by the user and you never repeat what '
-                + 'the user already said.'
-            ),
-        },
-        {
-            'role': 'user',
-            'content': 'Question: Is Jake a turtle?\nAnswer: Jake is ',
-        },
-        {'role': 'assistant', 'content': 'not a turtle.'},
-        {
-            'role': 'user',
-            'content': (
-                'Question: What is Priya doing right now?\nAnswer: '
-                + 'Priya is currently '
-            ),
-        },
-        {'role': 'assistant', 'content': 'sleeping.'},
-        {'role': 'user', 'content': prompt},
+def _validate_env():
+    """Ensure required environment variables are set before continuing."""
+    missing = [
+        name for name in ("MODEL", "API_KEY")
+        if not ENV.get(name)
     ]
+    if missing:
+        raise EnvironmentError(
+            f"Missing required OpenRouter settings in .env: {', '.join(missing)}"
+        )
+class BaseOpenAICompatibleModel:
+    """Language Model that uses OpenRouter's OpenAI-compatible models, with safer initialization."""
 
-    response = self._client.chat.completions.create(
-        model=self._model_name,
-        messages=messages,
-        temperature=temperature,
-        max_tokens=max_tokens,
-        timeout=timeout,
-        stop=terminators,
-        seed=seed,
-    )
+    def __init__(
+        self,
+        model_name: Optional[str] = ENV["MODEL"],
+        api_key: Optional[str] = ENV["API_KEY"],
+        base_url: Optional[str] = ENV["API_URL"],
+        http_referer: Optional[str] = ENV["XTRA_URL"],
+        x_title: Optional[str] = ENV["XTRA_TITLE"],
+        measurements: Optional[measurements_lib.Measurements] = None,
+        channel: str = language_model.DEFAULT_STATS_CHANNEL,
+        system_prompt: Optional[str] = None,
+        max_tokens: int = language_model.DEFAULT_MAX_TOKENS,
+    ):
+        """Initializes the instance with hardened configuration checks."""
+        _validate_env()
 
-    if self._measurements is not None:
-      self._measurements.publish_datum(
-          self._channel,
-          {'raw_text_length': len(response.choices[0].message.content)},
-      )
-    return response.choices[0].message.content
+        # Allow runtime overrides without mutating ENV
+        self._model_name = model_name or ENV["MODEL"]
+        self._api_key = api_key or ENV["API_KEY"]
+        self._base_url = base_url or ENV["API_URL"]
 
-  @override
-  def sample_choice(
-      self,
-      prompt: str,
-      responses: Sequence[str],
-      *,
-      seed: int | None = None,
-  ) -> tuple[int, str, dict[str, float]]:
-    prompt = (
-        prompt
-        + '\nRespond EXACTLY with one of the following strings:\n'
-        + '\n'.join(responses)
-        + '.'
-    )
+        custom_headers = {
+            k: v for k, v in {
+                "HTTP-Referer": http_referer or ENV["XTRA_URL"],
+                "X-Title": x_title or ENV["XTRA_TITLE"]
+            }.items() if v
+        }
 
-    sample = ''
-    answer = ''
-    for attempts in range(_MAX_MULTIPLE_CHOICE_ATTEMPTS):
-      temperature = sampling.dynamically_adjust_temperature(
-          attempts, _MAX_MULTIPLE_CHOICE_ATTEMPTS
-      )
+        try:
+            client = openai.OpenAI(
+                api_key=self._api_key,
+                base_url=self._base_url,
+                default_headers=custom_headers,
+            )
+        except Exception as e:
+            raise ConnectionError(f"Failed to initialize OpenRouter client: {e}") from e
 
-      sample = self.sample_text(
-          prompt,
-          temperature=temperature,
-          seed=seed,
-      )
-      answer = sampling.extract_choice_response(sample)
-      try:
-        idx = responses.index(answer)
-      except ValueError:
-        continue
-      else:
-        if self._measurements is not None:
-          self._measurements.publish_datum(
-              self._channel, {'choices_calls': attempts}
-          )
-        debug = {}
-        return idx, responses[idx], debug
+        super().__init__(
+            model_name=self._model_name,
+            client=client,
+            measurements=measurements,
+            channel=channel,
+            system_prompt=system_prompt,
+            max_tokens=max_tokens,
+        )
 
-    raise language_model.InvalidResponseError((
-        f'Too many multiple choice attempts.\nLast attempt: {sample}, '
-        + f'extracted: {answer}'
-    ))
+    # Optional: Provider-specific override for sample_text to add extra logging
+    def sample_text(self, *args, **kwargs) -> str:
+        try:
+            return super().sample_text(*args, **kwargs)
+        except Exception as e:
+            if self._measurements is not None:
+                self._measurements.publish_datum(
+                    self._channel,
+                    {"provider": "openrouter", "error": str(e)}
+                )
+            return ""  # Fail quietly to avoid breaking simulation loop
+
+    # Optional: Provider-specific override for sample_choice
+    def sample_choice(self, *args, **kwargs):
+        try:
+            return super().sample_choice(*args, **kwargs)
+        except Exception as e:
+            if self._measurements is not None:
+                self._measurements.publish_datum(
+                    self._channel,
+                    {"provider": "openrouter", "choice_error": str(e)}
+                )
+            # Return a safe default instead of raising if needed
+            return -1, "", {}

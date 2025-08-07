@@ -1,72 +1,80 @@
-"""Language Model that uses OpenRouter's OpenAI-compatible API."""
+"""Language Model that uses OpenRouter's OpenAI-compatible API (Optimized)."""
 
 import os
+from collections.abc import Sequence
+from typing import Optional
+
+from dotenv import load_dotenv, find_dotenv
+import openai
 
 from concordia.language_model import language_model
 from concordia.language_model.base_openai_compatible_model import BaseOpenAICompatibleModel
-from concordia.utils.deprecated import measurements as measurements_lib
-import dotenv
-import openai
+from concordia.utils import measurements as measurements_lib
 
-dotenv.load_dotenv()
+
+# --- Environment Setup ---
+# Load from .env anywhere in project
+load_dotenv(find_dotenv(), override=False)
+
+# Centralized env config with defaults
+ENV = {
+    "MODEL": os.getenv("OPENROUTER_MODEL"),
+    "API_URL": os.getenv("OPENROUTER_API_URL"),
+    "API_KEY": os.getenv("OPENROUTER_API_KEY"),
+    "XTRA_URL": os.getenv("OPENROUTER_XTRA_URL"),
+    "XTRA_TITLE": os.getenv("OPENROUTER_XTRA_TITLE"),
+}
+
+
+def _validate_env():
+    """Ensure required environment variables are set."""
+    missing = [k for k, v in {"MODEL": ENV["MODEL"], "API_KEY": ENV["API_KEY"]}.items() if not v]
+    if missing:
+        raise EnvironmentError(
+            f"Missing required OpenRouter settings in .env: {', '.join(missing)}"
+        )
+
 
 class OpenRouterLanguageModel(BaseOpenAICompatibleModel):
-  """Language Model that uses OpenRouter's OpenAI-compatible models."""
+    """Language Model that uses OpenRouter's OpenAI-compatible models."""
 
-  def __init__(
-      self,
-      model_name: str,
-      *,
-      api_key: str | None = None,
-      base_url: str | None = None,
-      http_referer: str | None = None,
-      x_title: str | None = None,
-      measurements: measurements_lib.Measurements | None = None,
-      channel: str = language_model.DEFAULT_STATS_CHANNEL,
-  ):
-    """Initializes the instance.
+    def __init__(
+        self,
+        model_name: Optional[str] = ENV["MODEL"],
+        api_key: Optional[str] = ENV["API_KEY"],
+        base_url: Optional[str] = ENV["API_URL"],
+        http_referer: Optional[str] = ENV["XTRA_URL"],
+        x_title: Optional[str] = ENV["XTRA_TITLE"],
+        measurements: Optional[measurements_lib.Measurements] = None,
+        channel: str = language_model.DEFAULT_STATS_CHANNEL,
+        system_prompt: Optional[str] = None,
+        max_tokens: int = language_model.DEFAULT_MAX_TOKENS,
+    ):
+        """Initializes the instance."""
+        _validate_env()
 
-    Args:
-      model_name: The language model to use from OpenRouter.
-      api_key: The API key to use when accessing the OpenRouter API. If None,
-        will use the OPENROUTER_API_KEY environment variable.
-      base_url: The base URL for the OpenRouter API. If None, will use the
-        OPENROUTER_API_URL environment variable.
-      http_referer: Optional. Site URL for rankings on openrouter.ai.
-      x_title: Optional. Site title for rankings on openrouter.ai.
-      measurements: The measurements object to log usage statistics to.
-      channel: The channel to write the statistics to.
-    """
-    # Use the OPENROUTER_API_KEY from environment variables if not provided.
-    if api_key is None:
-      api_key = os.environ.get("OPENROUTER_API_KEY")
-      if not api_key:
-        raise ValueError("OPENROUTER_API_KEY environment variable not set.")
-    self._api_key = api_key
+        custom_headers = {
+            k: v for k, v in {
+                "HTTP-Referer": http_referer,
+                "X-Title": x_title
+            }.items() if v
+        }
 
-    # Use the OPENROUTER_API_URL from environment variables if not provided.
-    if base_url is None:
-      base_url = os.environ.get("OPENROUTER_API_URL")
-      if not base_url:
-        raise ValueError("OPENROUTER_API_URL environment variable not set.")
-    self._base_url = base_url
+        try:
+            client = openai.OpenAI(
+                api_key=api_key,
+                base_url=base_url,
+                default_headers=custom_headers,
+            )
+        except Exception as e:
+            raise ConnectionError(f"Failed to initialize OpenRouter client: {e}") from e
 
-    # Prepare the custom headers for OpenRouter.
-    custom_headers = {}
-    if http_referer:
-      custom_headers["HTTP-Referer"] = http_referer
-    if x_title:
-      custom_headers["X-Title"] = x_title
+        super().__init__(
+            model_name=model_name,
+            client=client,
+            measurements=measurements,
+            channel=channel,
+            system_prompt=system_prompt,
 
-    # Instantiate the OpenAI client, pointing it to the OpenRouter API endpoint
-    # and including the custom headers.
-    client = openai.OpenAI(
-        api_key=self._api_key,
-        base_url=self._base_url,
-        default_headers=custom_headers,
-    )
-
-    super().__init__(model_name=model_name,
-                     client=client,
-                     measurements=measurements,
-                     channel=channel)
+            max_tokens=max_tokens,
+        )
