@@ -27,3 +27,8 @@ __pycache__/
 # Type checking
 .pytype
 .env
+requirements.txt
+.vscode
+.github
+pyproject.toml
+.pylintrc

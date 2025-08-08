@@ -9,7 +9,7 @@ from openai import OpenAI
 from typing_extensions import override
 
 
-_MAX_MULTIPLE_CHOICE_ATTEMPTS = 20
+_MAX_MULTIPLE_CHOICE_ATTEMPTS = 150
 
 
 class BaseOAICompatibleModel(language_model.LanguageModel):

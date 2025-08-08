@@ -123,7 +123,3 @@ If you use Concordia in your work, please cite the accompanying article:
   year={2023}
 }
 ```
-
-## Disclaimer
-
-This is not an officially supported Google product.

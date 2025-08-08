@@ -1,22 +1,7 @@
-# Copyright 2023 DeepMind Technologies Limited.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     https://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
 """Helper functions."""
 
 from collections.abc import Iterable, Sequence
 import datetime
-import functools
 import inspect
 import re
 import types
@@ -24,8 +9,6 @@ from typing import Any
 
 from concordia.document import interactive_document
 from concordia.language_model import language_model
-from concordia.type_checks.deprecated import component
-from concordia.utils import concurrency
 import numpy as np
 import pandas as pd
 
@@ -133,39 +116,39 @@ def timedelta_to_readable_str(td: datetime.timedelta):
   return ''.join(readable_str)
 
 
-def apply_recursively(
-    parent_component: component.Component,
-    function_name: str,
-    function_arg: str | None = None,
-    concurrent_child_calls: bool = False,
-) -> None:
-  """Recursively applies a function to each component in a tree of components.
+# def apply_recursively(
+#     parent_component: component.Component,
+#     function_name: str,
+#     function_arg: str | None = None,
+#     concurrent_child_calls: bool = False,
+# ) -> None:
+#   """Recursively applies a function to each component in a tree of components.
 
-  Args:
-    parent_component: the component to apply the function to.
-    function_name: the name of the function to apply.
-    function_arg: the argument to pass to the function.
-    concurrent_child_calls: whether to call the function on child components
-      concurrently.
-  """
-  if concurrent_child_calls:
-    concurrency.run_tasks({
-        f'{child_component.name}.{function_name}': functools.partial(
-            apply_recursively,
-            parent_component=child_component,
-            function_name=function_name,
-            function_arg=function_arg,
-            concurrent_child_calls=concurrent_child_calls,
-        )
-        for child_component in parent_component.get_components()
-    })
-  else:
-    for child_component in parent_component.get_components():
-      apply_recursively(
-          parent_component=child_component,
-          function_name=function_name,
-          function_arg=function_arg,
-      )
+#   Args:
+#     parent_component: the component to apply the function to.
+#     function_name: the name of the function to apply.
+#     function_arg: the argument to pass to the function.
+#     concurrent_child_calls: whether to call the function on child components
+#       concurrently.
+#   """
+#   if concurrent_child_calls:
+#     concurrency.run_tasks({
+#         f'{child_component.name}.{function_name}': functools.partial(
+#             apply_recursively,
+#             parent_component=child_component,
+#             function_name=function_name,
+#             function_arg=function_arg,
+#             concurrent_child_calls=concurrent_child_calls,
+#         )
+#         for child_component in parent_component.get_components()
+#     })
+#   else:
+#     for child_component in parent_component.get_components():
+#       apply_recursively(
+#           parent_component=child_component,
+#           function_name=function_name,
+#           function_arg=function_arg,
+#       )
 
   if function_arg is None:
     getattr(parent_component, function_name)()
