@@ -26,9 +26,9 @@ from concordia.components import deprecated as generic_components
 from concordia.document import interactive_document
 from concordia.language_model import language_model
 from concordia.thought_chains.deprecated import thought_chains
-from concordia.typing.deprecated import agent as agent_lib
-from concordia.typing.deprecated import clock as game_clock
-from concordia.typing.deprecated import component
+from concordia.type_checks.deprecated import agent as agent_lib
+from concordia.type_checks.deprecated import clock as game_clock
+from concordia.type_checks.deprecated import component
 from concordia.utils import concurrency
 from concordia.utils import helper_functions
 import numpy as np

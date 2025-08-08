@@ -20,7 +20,7 @@ import functools
 from absl.testing import absltest
 from concordia.agents import entity_agent_with_logging
 from concordia.environment.engines import simultaneous
-from concordia.typing import entity as entity_lib
+from concordia.type_checks import entity as entity_lib
 from typing_extensions import override
 
 

@@ -44,8 +44,8 @@ from examples.deprecated.modular.scenario import scenarios as scenarios_lib
 from examples.deprecated.modular.utils import logging_types as logging_lib
 from concordia.language_model import language_model
 from concordia.thought_chains.deprecated import thought_chains as thought_chains_lib
-from concordia.typing.deprecated import agent as agent_lib
-from concordia.typing.deprecated import scene as scene_lib
+from concordia.type_checks.deprecated import agent as agent_lib
+from concordia.type_checks.deprecated import scene as scene_lib
 from concordia.utils import concurrency
 from concordia.utils.deprecated import measurements as measurements_lib
 import immutabledict
@@ -195,7 +195,7 @@ def _get_friends_names(name, all_names, relationship_matrix):
     relationship_matrix: relationship matrix of the players
 
   Returns:
-    names of the friends of the player from the relationship matrix or if it 
+    names of the friends of the player from the relationship matrix or if it
       is None, then all the names that are not the player itself
   """
   if (

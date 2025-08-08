@@ -14,8 +14,8 @@
 
 """Component that helps a game master terminate the simulation."""
 
-from concordia.typing import entity as entity_lib
-from concordia.typing import entity_component
+from concordia.type_checks import entity as entity_lib
+from concordia.type_checks import entity_component
 
 
 DEFAULT_TERMINATE_COMPONENT_KEY = '__terminate__'

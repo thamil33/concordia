@@ -24,8 +24,8 @@ from typing import Any, Dict, List, Sequence
 
 from concordia.components.agent import action_spec_ignored
 from concordia.environment import engine as engine_lib
-from concordia.typing import entity as entity_lib
-from concordia.typing import entity_component
+from concordia.type_checks import entity as entity_lib
+from concordia.type_checks import entity_component
 
 DefaultDict = collections.defaultdict
 dataclass = dataclasses.dataclass

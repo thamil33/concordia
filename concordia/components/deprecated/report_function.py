@@ -22,7 +22,7 @@ current_time_component = ReportFunction(
 """
 
 from typing import Callable
-from concordia.typing.deprecated import component
+from concordia.type_checks.deprecated import component
 
 
 class ReportFunction(component.Component):

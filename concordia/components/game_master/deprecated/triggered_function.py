@@ -22,7 +22,7 @@ from concordia.agents.deprecated import deprecated_agent
 from concordia.agents.deprecated import entity_agent
 from concordia.associative_memory.deprecated import associative_memory
 from concordia.components.game_master.deprecated import current_scene
-from concordia.typing.deprecated import component
+from concordia.type_checks.deprecated import component
 
 MemoryT = associative_memory.AssociativeMemory
 PlayersT = Sequence[deprecated_agent.BasicAgent | entity_agent.EntityAgent]

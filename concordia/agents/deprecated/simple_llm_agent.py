@@ -17,8 +17,8 @@ import collections
 import functools
 
 from concordia.language_model import language_model
-from concordia.typing.deprecated import agent
-from concordia.typing.deprecated import entity
+from concordia.type_checks.deprecated import agent
+from concordia.type_checks.deprecated import entity
 from typing_extensions import override
 
 # TODO: b/313715068 - remove disable once pytype bug is fixed.
@@ -45,7 +45,7 @@ class SimpleLLMAgent(agent.GenerativeAgent):
       memories_length: int = 10,
   ):
     """Initializes the agent.
-    
+
     Args:
       agent_name: The name of the agent.
       agent_background: The background intormation of the agent. This is used

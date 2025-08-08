@@ -20,9 +20,9 @@ from typing import Any
 from concordia.agents.deprecated import entity_agent
 from concordia.components.agent import memory as memory_component
 from concordia.components.agent import observation as observation_component
-from concordia.typing.deprecated import clock as game_clock
-from concordia.typing.deprecated import logging as logging_lib
-from concordia.typing.deprecated import scene as scene_lib
+from concordia.type_checks.deprecated import clock as game_clock
+from concordia.type_checks.deprecated import logging as logging_lib
+from concordia.type_checks.deprecated import scene as scene_lib
 from concordia.utils import json as json_lib
 
 _SCENE_TYPE_TAG = '[scene type]'

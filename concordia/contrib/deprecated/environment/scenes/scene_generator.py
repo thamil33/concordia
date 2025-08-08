@@ -19,7 +19,7 @@ import datetime
 
 from concordia.associative_memory.deprecated import formative_memories
 from concordia.language_model import language_model
-from concordia.typing.deprecated import scene
+from concordia.type_checks.deprecated import scene
 
 
 class SceneGenerator:

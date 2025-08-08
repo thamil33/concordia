@@ -19,7 +19,7 @@ from collections.abc import Collection, Mapping
 import enum
 import functools
 from typing import TypeVar
-from concordia.typing.deprecated import entity as entity_lib
+from concordia.type_checks.deprecated import entity as entity_lib
 
 ComponentName = str
 ComponentContext = str
@@ -112,7 +112,7 @@ class BaseComponent:
 
   def get_state(self) -> ComponentState:
     """Returns the state of the component.
-    
+
     See `set_state` for details. The default implementation returns an empty
     dictionary.
     """
@@ -120,13 +120,13 @@ class BaseComponent:
 
   def set_state(self, state: ComponentState):
     """Sets the state of the component.
-    
+
     This is used to restore the state of the component. The state is assumed to
     be the one returned by `get_state`.
-    The state does not need to contain any information that is passed in the 
-    initialization of the component (e.g. the memory bank, names of other 
+    The state does not need to contain any information that is passed in the
+    initialization of the component (e.g. the memory bank, names of other
     components etc.)
-    It is assumed that set_state is called on the component after it was 
+    It is assumed that set_state is called on the component after it was
     initialized with the same parameters as the one used to restore it.
     The default implementation does nothing, which implies that the component
     does not have any state.
@@ -144,7 +144,7 @@ class BaseComponent:
       # do more with obj
       obj.set_state(state)
       # obj will now behave the same as it did before.
-    
+
     Note that the state does not need to contain any information that is passed
     in __init__ (e.g. the memory bank, names of other components etc.)
 

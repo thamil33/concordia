@@ -19,9 +19,9 @@ from collections.abc import Mapping, Sequence
 from concordia.agents.deprecated import deprecated_agent
 from concordia.agents.deprecated import entity_agent
 from concordia.environment.deprecated import game_master
-from concordia.typing.deprecated import clock as game_clock
-from concordia.typing.deprecated import logging as logging_lib
-from concordia.typing.deprecated import scene as scene_lib
+from concordia.type_checks.deprecated import clock as game_clock
+from concordia.type_checks.deprecated import logging as logging_lib
+from concordia.type_checks.deprecated import scene as scene_lib
 from concordia.utils import json as json_lib
 
 

@@ -17,7 +17,7 @@
 from typing import Sequence
 
 from absl import logging
-from concordia.typing.deprecated import component
+from concordia.type_checks.deprecated import component
 from concordia.utils import helper_functions
 
 

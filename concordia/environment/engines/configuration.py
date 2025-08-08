@@ -21,8 +21,8 @@ from concordia.components.game_master import event_resolution as event_resolutio
 from concordia.components.game_master import make_observation as make_observation_component
 from concordia.components.game_master import next_acting as next_acting_components
 from concordia.components.game_master import switch_act as switch_act_component
-from concordia.typing import entity as entity_lib
-from concordia.typing import prefab as prefab_lib
+from concordia.type_checks import entity as entity_lib
+from concordia.type_checks import prefab as prefab_lib
 import termcolor
 
 

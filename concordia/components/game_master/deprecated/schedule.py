@@ -19,7 +19,7 @@ import dataclasses
 import datetime
 from typing import Callable, Optional
 
-from concordia.typing.deprecated import component
+from concordia.type_checks.deprecated import component
 
 
 @dataclasses.dataclass(frozen=True)

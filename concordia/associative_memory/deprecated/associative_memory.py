@@ -25,7 +25,7 @@ import datetime
 import threading
 
 from concordia.associative_memory.deprecated import importance_function
-from concordia.typing.deprecated import entity_component
+from concordia.type_checks.deprecated import entity_component
 import numpy as np
 import pandas as pd
 

@@ -19,8 +19,8 @@ from collections.abc import Sequence
 from concordia.components.agent import action_spec_ignored
 from concordia.document import interactive_document
 from concordia.language_model import language_model
-from concordia.typing import entity as entity_lib
-from concordia.typing import entity_component
+from concordia.type_checks import entity as entity_lib
+from concordia.type_checks import entity_component
 
 
 class WorldState(
@@ -178,7 +178,7 @@ class Locations(
       entity_names: Names of entities to track locations for.
       prompt: description of all locations to be specifically represented in the
         world. This is used to prompt the model to generate concrete variables
-        representing the locations and their properties (e.g. their topology). 
+        representing the locations and their properties (e.g. their topology).
       components: Keys of components to condition entity locations on.
       pre_act_label: Prefix to add to the output of the component when called
         in `pre_act`.

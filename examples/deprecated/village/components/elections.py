@@ -21,8 +21,8 @@ import datetime
 from concordia.associative_memory.deprecated import associative_memory
 from concordia.document import interactive_document
 from concordia.language_model import language_model
-from concordia.typing.deprecated import agent
-from concordia.typing.deprecated import component
+from concordia.type_checks.deprecated import agent
+from concordia.type_checks.deprecated import component
 from concordia.utils.deprecated import measurements as measurements_lib
 import termcolor
 

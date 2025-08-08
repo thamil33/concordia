@@ -17,7 +17,7 @@
 
 from concordia.components.agent import action_spec_ignored
 from concordia.components.agent import memory as memory_component
-from concordia.typing import entity_component
+from concordia.type_checks import entity_component
 
 DEFAULT_OBSERVATION_COMPONENT_KEY = '__observation__'
 DEFAULT_OBSERVATION_PRE_ACT_LABEL = (

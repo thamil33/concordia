@@ -31,9 +31,9 @@ from concordia.document import interactive_document
 from concordia.environment.deprecated import game_master as game_master_lib
 from concordia.language_model import language_model
 from concordia.thought_chains.deprecated import thought_chains
-from concordia.typing.deprecated import agent as simulacrum_agent
-from concordia.typing.deprecated import component
-from concordia.typing.deprecated import entity
+from concordia.type_checks.deprecated import agent as simulacrum_agent
+from concordia.type_checks.deprecated import component
+from concordia.type_checks.deprecated import entity
 import numpy as np
 import termcolor
 

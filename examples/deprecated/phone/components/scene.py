@@ -25,8 +25,8 @@ from examples.deprecated.phone.components import apps
 from examples.deprecated.phone.components import logging
 from concordia.language_model import language_model
 from concordia.thought_chains.deprecated import thought_chains
-from concordia.typing.deprecated import agent
-from concordia.typing.deprecated import component
+from concordia.type_checks.deprecated import agent
+from concordia.type_checks.deprecated import component
 
 
 _PHONE_CALL_TO_ACTION = textwrap.dedent("""\

@@ -20,7 +20,7 @@ from typing import Callable, Sequence
 from concordia.associative_memory.deprecated import associative_memory
 from concordia.components.agent.deprecated.to_be_deprecated import characteristic
 from concordia.language_model import language_model
-from concordia.typing.deprecated import component
+from concordia.type_checks.deprecated import component
 
 
 class SimIdentity(component.Component):

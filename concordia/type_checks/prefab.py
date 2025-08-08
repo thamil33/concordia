@@ -22,7 +22,7 @@ from typing import ClassVar
 
 from concordia.associative_memory import basic_associative_memory
 from concordia.language_model import language_model
-from concordia.typing import entity_component
+from concordia.type_checks import entity_component
 
 
 class Role(enum.StrEnum):

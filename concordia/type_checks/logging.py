@@ -11,3 +11,22 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
+"""Types for logging."""
+
+from collections.abc import Mapping, Sequence
+import dataclasses
+from typing import Any, Callable
+from concordia.type_checks.deprecated import entity as entity_lib
+
+LoggingChannel = Callable[[Mapping[str, Any]], None]
+
+NoOpLoggingChannel = lambda x: None
+
+
+@dataclasses.dataclass(frozen=True)
+class Metric:
+  question: str
+  output_type: entity_lib.OutputType
+  options: Sequence[str] | None = None
+  context: str | None = None

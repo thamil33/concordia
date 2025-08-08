@@ -21,8 +21,8 @@ from typing import Any
 from absl import logging
 from concordia.agents.deprecated import entity_agent
 from concordia.associative_memory.deprecated import formative_memories
-from concordia.typing.deprecated import agent
-from concordia.typing.deprecated import entity_component
+from concordia.type_checks.deprecated import agent
+from concordia.type_checks.deprecated import entity_component
 from concordia.utils.deprecated import measurements as measurements_lib
 import reactivex as rx
 

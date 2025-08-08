@@ -29,7 +29,7 @@ from concordia.components.agent import deprecated as agent_components
 from concordia.deprecated.factory.environment import basic_game_master
 from concordia.environment.deprecated import game_master
 from concordia.language_model import no_language_model
-from concordia.typing.deprecated import scene as scene_lib
+from concordia.type_checks.deprecated import scene as scene_lib
 import numpy as np
 
 

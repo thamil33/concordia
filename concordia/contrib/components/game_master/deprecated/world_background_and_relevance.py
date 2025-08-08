@@ -24,7 +24,7 @@ from concordia.agents.deprecated import entity_agent
 from concordia.associative_memory.deprecated import associative_memory
 from concordia.document import interactive_document
 from concordia.language_model import language_model
-from concordia.typing.deprecated import component
+from concordia.type_checks.deprecated import component
 import termcolor
 
 

@@ -29,9 +29,9 @@ from concordia.environment.deprecated import game_master
 from concordia.environment.deprecated.scenes import runner
 from concordia.language_model import language_model
 from concordia.thought_chains.deprecated import thought_chains as thought_chains_lib
-from concordia.typing.deprecated import agent as agent_lib
-from concordia.typing.deprecated import component
-from concordia.typing.deprecated import scene as scene_lib
+from concordia.type_checks.deprecated import agent as agent_lib
+from concordia.type_checks.deprecated import component
+from concordia.type_checks.deprecated import scene as scene_lib
 from concordia.utils import html as html_lib
 import numpy as np
 

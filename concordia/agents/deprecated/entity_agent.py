@@ -21,8 +21,8 @@ import types
 from typing import cast
 
 from concordia.components.agent.deprecated import no_op_context_processor
-from concordia.typing.deprecated import entity
-from concordia.typing.deprecated import entity_component
+from concordia.type_checks.deprecated import entity
+from concordia.type_checks.deprecated import entity_component
 from concordia.utils import concurrency
 from typing_extensions import override
 

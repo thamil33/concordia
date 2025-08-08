@@ -20,7 +20,7 @@ import datetime
 
 from concordia.associative_memory.deprecated import associative_memory
 from concordia.language_model import language_model
-from concordia.typing.deprecated import component
+from concordia.type_checks.deprecated import component
 
 
 class RelevantEvents(component.Component):

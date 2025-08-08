@@ -21,7 +21,7 @@ from typing import Sequence
 from concordia.associative_memory.deprecated import associative_memory
 from concordia.document import interactive_document
 from concordia.language_model import language_model
-from concordia.typing.deprecated import component
+from concordia.type_checks.deprecated import component
 import termcolor
 
 
@@ -76,7 +76,7 @@ class JustifyRecentVoluntaryActions(component.Component):
       model: The language model to use.
       memory: The memory to use.
       agent_name: The name of the agent.
-      components: 
+      components:
       audiences:
       clock_now: time callback to use for the state.
       num_memories_to_retrieve: The number of memories to retrieve.

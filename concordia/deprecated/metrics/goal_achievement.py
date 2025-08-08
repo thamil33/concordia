@@ -18,8 +18,8 @@ from collections.abc import Sequence
 
 from concordia.document import interactive_document
 from concordia.language_model import language_model
-from concordia.typing.deprecated import clock as game_clock
-from concordia.typing.deprecated import component
+from concordia.type_checks.deprecated import clock as game_clock
+from concordia.type_checks.deprecated import component
 from concordia.utils.deprecated import measurements as measurements_lib
 
 DEFAULT_SCALE = (

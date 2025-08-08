@@ -22,7 +22,7 @@ from concordia.associative_memory.deprecated import importance_function
 from concordia.clocks import game_clock
 from concordia.environment.deprecated import game_master
 from concordia.testing import mock_model
-from concordia.typing.deprecated import component
+from concordia.type_checks.deprecated import component
 import numpy as np
 
 

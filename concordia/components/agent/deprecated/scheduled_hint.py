@@ -20,8 +20,8 @@ import types
 from concordia.components.agent.deprecated import action_spec_ignored
 from concordia.document import interactive_document
 from concordia.language_model import language_model
-from concordia.typing.deprecated import entity_component
-from concordia.typing.deprecated import logging
+from concordia.type_checks.deprecated import entity_component
+from concordia.type_checks.deprecated import logging
 
 DEFAULT_PRE_ACT_KEY = '\nHint'
 

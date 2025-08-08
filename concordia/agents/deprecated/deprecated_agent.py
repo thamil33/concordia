@@ -29,10 +29,10 @@ import threading
 
 from concordia.document import interactive_document
 from concordia.language_model import language_model
-from concordia.typing.deprecated import agent
-from concordia.typing.deprecated import clock as game_clock
-from concordia.typing.deprecated import component
-from concordia.typing.deprecated import entity
+from concordia.type_checks.deprecated import agent
+from concordia.type_checks.deprecated import clock as game_clock
+from concordia.type_checks.deprecated import component
+from concordia.type_checks.deprecated import entity
 from concordia.utils import helper_functions
 from IPython import display
 import termcolor

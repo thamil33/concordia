@@ -19,10 +19,10 @@ from collections.abc import Mapping, Sequence
 
 from concordia.document import interactive_document
 from concordia.language_model import language_model
-from concordia.typing.deprecated import clock as game_clock
-from concordia.typing.deprecated import entity as entity_lib
-from concordia.typing.deprecated import entity_component
-from concordia.typing.deprecated import logging
+from concordia.type_checks.deprecated import clock as game_clock
+from concordia.type_checks.deprecated import entity as entity_lib
+from concordia.type_checks.deprecated import entity_component
+from concordia.type_checks.deprecated import logging
 from concordia.utils import helper_functions
 from typing_extensions import override
 

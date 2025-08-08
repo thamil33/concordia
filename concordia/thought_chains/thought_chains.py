@@ -21,7 +21,7 @@ import random
 from concordia.agents import entity_agent
 from concordia.document import interactive_document
 from concordia.language_model import language_model
-from concordia.typing import entity as entity_lib
+from concordia.type_checks import entity as entity_lib
 import termcolor
 
 

@@ -24,7 +24,7 @@ from typing import Any
 
 from concordia.document import interactive_document
 from concordia.language_model import language_model
-from concordia.typing.deprecated import component
+from concordia.type_checks.deprecated import component
 from concordia.utils import concurrency
 import numpy as np
 import pandas as pd

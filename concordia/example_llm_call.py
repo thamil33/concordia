@@ -1,7 +1,6 @@
+# example_llm_call.py
 from concordia.language_model.openrouter_model import OpenRouterLanguageModel
 from concordia.utils import measurements as measurements_lib
-
-
 # Instantiate the OpenRouter LLM
 llm = OpenRouterLanguageModel(
     system_prompt=(

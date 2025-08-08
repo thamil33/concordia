@@ -16,8 +16,8 @@
 """This component shows current time interval."""
 
 
-from concordia.typing.deprecated import clock
-from concordia.typing.deprecated import component
+from concordia.type_checks.deprecated import clock
+from concordia.type_checks.deprecated import component
 
 
 class TimeDisplay(component.Component):

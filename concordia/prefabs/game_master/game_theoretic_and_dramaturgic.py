@@ -23,9 +23,9 @@ from concordia.components import agent as actor_components
 from concordia.components import game_master as gm_components
 from concordia.language_model import language_model
 from concordia.thought_chains import thought_chains as thought_chains_lib
-from concordia.typing import entity as entity_lib
-from concordia.typing import prefab as prefab_lib
-from concordia.typing import scene as scene_lib
+from concordia.type_checks import entity as entity_lib
+from concordia.type_checks import prefab as prefab_lib
+from concordia.type_checks import scene as scene_lib
 
 DEFAULT_NAME = 'decision rules'
 

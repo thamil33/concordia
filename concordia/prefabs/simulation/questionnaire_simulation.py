@@ -25,10 +25,10 @@ from typing import Any
 from concordia.associative_memory import basic_associative_memory as associative_memory
 from concordia.environment.engines import parallel
 from concordia.language_model import language_model
-from concordia.typing import entity as entity_lib
-from concordia.typing import entity_component
-from concordia.typing import prefab as prefab_lib
-from concordia.typing import simulation as simulation_lib
+from concordia.type_checks import entity as entity_lib
+from concordia.type_checks import entity_component
+from concordia.type_checks import prefab as prefab_lib
+from concordia.type_checks import simulation as simulation_lib
 from concordia.utils import helper_functions as helper_functions_lib
 from concordia.utils import html as html_lib
 import numpy as np

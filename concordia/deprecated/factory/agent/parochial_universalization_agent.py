@@ -29,8 +29,8 @@ from concordia.contrib.components.agent.deprecated import situation_representati
 from concordia.deprecated.memory_bank import legacy_associative_memory
 from concordia.document import interactive_document
 from concordia.language_model import language_model
-from concordia.typing.deprecated import entity_component
-from concordia.typing.deprecated import logging
+from concordia.type_checks.deprecated import entity_component
+from concordia.type_checks.deprecated import logging
 from concordia.utils.deprecated import measurements as measurements_lib
 import numpy as np
 
@@ -105,7 +105,7 @@ class Universalization(action_spec_ignored.ActionSpecIgnored):
 
     Args:
       model: The language model to use.
-      context_components: The components to condition the answer on. This is a 
+      context_components: The components to condition the answer on. This is a
         mapping of component name to their labels to use in the prompt.
       options_components: Components to report the options currently available
         to the focal agent. This component will consider the universalization

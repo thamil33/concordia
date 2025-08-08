@@ -29,8 +29,8 @@ from concordia.document import interactive_document
 from concordia.environment.deprecated import game_master
 from concordia.environment.deprecated.scenes import conversation as conversation_scene
 from concordia.language_model import language_model
-from concordia.typing.deprecated import clock as clock_lib
-from concordia.typing.deprecated import component
+from concordia.type_checks.deprecated import clock as clock_lib
+from concordia.type_checks.deprecated import component
 from concordia.utils import helper_functions
 import termcolor
 

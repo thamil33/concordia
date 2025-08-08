@@ -22,7 +22,7 @@ from concordia.agents.deprecated import deprecated_agent
 from concordia.agents.deprecated import entity_agent
 from concordia.document import interactive_document
 from concordia.language_model import language_model
-from concordia.typing.deprecated import agent as agent_types
+from concordia.type_checks.deprecated import agent as agent_types
 import termcolor
 
 

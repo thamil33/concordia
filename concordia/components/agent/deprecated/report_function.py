@@ -23,7 +23,7 @@ current_time_component = ReportFunction(
 
 from typing import Callable
 from concordia.components.agent.deprecated import action_spec_ignored
-from concordia.typing.deprecated import logging
+from concordia.type_checks.deprecated import logging
 
 DEFAULT_PRE_ACT_KEY = 'Report'
 

@@ -15,7 +15,7 @@
 """Component that provides the default role playing instructions to an agent."""
 
 from concordia.components.agent.deprecated import constant
-from concordia.typing.deprecated import logging
+from concordia.type_checks.deprecated import logging
 
 DEFAULT_INSTRUCTIONS_PRE_ACT_KEY = 'Role playing instructions'
 

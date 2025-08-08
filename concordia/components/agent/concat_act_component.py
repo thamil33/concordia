@@ -18,8 +18,8 @@ from collections.abc import Sequence
 
 from concordia.document import interactive_document
 from concordia.language_model import language_model
-from concordia.typing import entity as entity_lib
-from concordia.typing import entity_component
+from concordia.type_checks import entity as entity_lib
+from concordia.type_checks import entity_component
 from typing_extensions import override
 
 
@@ -58,7 +58,7 @@ class ConcatActComponent(
         the component order must be in the `ComponentContextMapping` passed to
         `get_action_attempt`.
       prefix_entity_name: Whether to prefix the entity name to the output of
-        `get_action_attempt` when the `action_spec` output type is `FREE`. 
+        `get_action_attempt` when the `action_spec` output type is `FREE`.
       randomize_choices: Whether to randomize the choices in the
         `get_action_attempt` when the `action_spec` output type is `CHOICE`.
 

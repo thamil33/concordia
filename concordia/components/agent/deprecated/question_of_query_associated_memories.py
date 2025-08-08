@@ -23,9 +23,9 @@ from concordia.components.agent.deprecated import memory_component
 from concordia.deprecated.memory_bank import legacy_associative_memory
 from concordia.document import interactive_document
 from concordia.language_model import language_model
-from concordia.typing.deprecated import entity as entity_lib
-from concordia.typing.deprecated import entity_component
-from concordia.typing.deprecated import logging
+from concordia.type_checks.deprecated import entity as entity_lib
+from concordia.type_checks.deprecated import entity_component
+from concordia.type_checks.deprecated import logging
 from concordia.utils import concurrency
 
 

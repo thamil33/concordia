@@ -25,8 +25,8 @@ from concordia.agents import entity_agent
 from concordia.components.game_master import event_resolution as event_resolution_components
 from concordia.components.game_master import next_acting as next_acting_components
 from concordia.environment import engine as engine_lib
-from concordia.typing import entity as entity_lib
-from concordia.typing import entity_component
+from concordia.type_checks import entity as entity_lib
+from concordia.type_checks import entity_component
 from concordia.utils import concurrency
 import termcolor
 from typing_extensions import override

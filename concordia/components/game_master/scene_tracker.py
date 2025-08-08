@@ -20,9 +20,9 @@ from concordia.components.game_master import make_observation as make_observatio
 from concordia.components.game_master import next_game_master as next_game_master_component_module
 from concordia.components.game_master import terminate as terminate_component_module
 from concordia.language_model import language_model
-from concordia.typing import entity as entity_lib
-from concordia.typing import entity_component
-from concordia.typing import scene as scene_lib
+from concordia.type_checks import entity as entity_lib
+from concordia.type_checks import entity_component
+from concordia.type_checks import scene as scene_lib
 
 _SCENE_COUNTER_TAG = '[scene counter]'
 

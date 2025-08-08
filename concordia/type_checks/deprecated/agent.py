@@ -23,7 +23,7 @@ https://arxiv.org/abs/2304.03442
 
 import abc
 from typing import Any
-from concordia.typing.deprecated import entity
+from concordia.type_checks.deprecated import entity
 
 # Forwarding the ActionSpec and the DEFAULT_ACTION_SPEC for backwards
 # compatibility.

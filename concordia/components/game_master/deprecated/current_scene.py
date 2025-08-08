@@ -17,7 +17,7 @@ import datetime
 from typing import Callable
 
 from concordia.associative_memory.deprecated import associative_memory
-from concordia.typing.deprecated import component
+from concordia.type_checks.deprecated import component
 
 import termcolor
 

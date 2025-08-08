@@ -18,8 +18,8 @@ from collections.abc import Mapping, Sequence
 import threading
 from typing import Any
 
-from concordia.typing.deprecated import entity_component
-from concordia.typing.deprecated import memory as memory_lib
+from concordia.type_checks.deprecated import entity_component
+from concordia.type_checks.deprecated import memory as memory_lib
 import pandas as pd
 
 

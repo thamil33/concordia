@@ -15,7 +15,7 @@
 """A simple acting component that aggregates contexts from components."""
 
 from concordia.components.agent import action_spec_ignored
-from concordia.typing import entity_component
+from concordia.type_checks import entity_component
 
 DEFAULT_PRE_ACT_LABEL = 'Constant'
 

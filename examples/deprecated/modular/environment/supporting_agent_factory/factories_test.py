@@ -29,7 +29,7 @@ from examples.deprecated.modular.environment.supporting_agent_factory import bas
 from examples.deprecated.modular.environment.supporting_agent_factory import paranoid_agent
 from examples.deprecated.modular.environment.supporting_agent_factory import rational_agent
 from concordia.language_model import no_language_model
-from concordia.typing.deprecated import agent as agent_lib
+from concordia.type_checks.deprecated import agent as agent_lib
 import numpy as np
 
 

@@ -1,5 +1,5 @@
 """Language Model that uses OpenRouter's OpenAI-compatible API (Optimized)."""
-
+#openrouter_model.py
 import os
 from collections.abc import Sequence
 from typing import Optional
@@ -36,8 +36,6 @@ def _validate_env():
 
 
 class OpenRouterLanguageModel(BaseOpenAICompatibleModel):
-    """Language Model that uses OpenRouter's OpenAI-compatible models."""
-
     def __init__(
         self,
         model_name: Optional[str] = ENV["MODEL"],
@@ -50,31 +48,14 @@ class OpenRouterLanguageModel(BaseOpenAICompatibleModel):
         system_prompt: Optional[str] = None,
         max_tokens: int = language_model.DEFAULT_MAX_TOKENS,
     ):
-        """Initializes the instance."""
-        _validate_env()
-
-        custom_headers = {
-            k: v for k, v in {
-                "HTTP-Referer": http_referer,
-                "X-Title": x_title
-            }.items() if v
-        }
-
-        try:
-            client = openai.OpenAI(
-                api_key=api_key,
-                base_url=base_url,
-                default_headers=custom_headers,
-            )
-        except Exception as e:
-            raise ConnectionError(f"Failed to initialize OpenRouter client: {e}") from e
-
         super().__init__(
             model_name=model_name,
-            client=client,
+            api_key=api_key,
+            base_url=base_url,
+            http_referer=http_referer,
+            x_title=x_title,
             measurements=measurements,
             channel=channel,
             system_prompt=system_prompt,
-
             max_tokens=max_tokens,
         )

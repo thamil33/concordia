@@ -23,8 +23,8 @@ from typing import Any, Dict, List, Optional, Tuple
 
 from concordia.components.game_master import event_resolution
 from concordia.contrib.data.questionnaires import base_questionnaire
-from concordia.typing import entity as entity_lib
-from concordia.typing import entity_component
+from concordia.type_checks import entity as entity_lib
+from concordia.type_checks import entity_component
 import pandas as pd
 
 

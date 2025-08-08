@@ -26,9 +26,9 @@ from concordia.components.agent.deprecated import memory_component
 from concordia.deprecated.memory_bank import legacy_associative_memory
 from concordia.document import interactive_document
 from concordia.language_model import language_model
-from concordia.typing.deprecated import entity_component
-from concordia.typing.deprecated import logging
-from concordia.typing.deprecated import memory as memory_lib
+from concordia.type_checks.deprecated import entity_component
+from concordia.type_checks.deprecated import logging
+from concordia.type_checks.deprecated import memory as memory_lib
 
 
 def _get_all_memories(

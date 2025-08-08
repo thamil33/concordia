@@ -24,7 +24,7 @@ from concordia.agents.deprecated import entity_agent_with_logging
 from concordia.associative_memory.deprecated import formative_memories
 from concordia.environment import engine as engine_lib
 from concordia.environment.deprecated import game_master
-from concordia.typing.deprecated import agent as agent_lib
+from concordia.type_checks.deprecated import agent as agent_lib
 
 
 @dataclasses.dataclass(frozen=True)

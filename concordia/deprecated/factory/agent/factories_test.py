@@ -35,7 +35,7 @@ from concordia.deprecated.factory.agent import parochial_universalization_agent
 from concordia.deprecated.factory.agent import rational_agent
 from concordia.deprecated.factory.agent import synthetic_user
 from concordia.language_model import no_language_model
-from concordia.typing.deprecated import agent as agent_lib
+from concordia.type_checks.deprecated import agent as agent_lib
 import numpy as np
 
 

@@ -15,7 +15,7 @@
 
 """This component always returns the same string."""
 
-from concordia.typing.deprecated import component
+from concordia.type_checks.deprecated import component
 
 
 class ConstantComponent(component.Component):

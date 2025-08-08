@@ -24,7 +24,7 @@ from concordia.agents.deprecated import entity_agent
 from concordia.associative_memory.deprecated import associative_memory
 from concordia.components.game_master.deprecated import current_scene
 from concordia.components.game_master.deprecated import inventory as inventory_gm_component
-from concordia.typing.deprecated import component
+from concordia.type_checks.deprecated import component
 
 MemoryT = associative_memory.AssociativeMemory
 PlayerT = deprecated_agent.BasicAgent | entity_agent.EntityAgent

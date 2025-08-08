@@ -35,7 +35,7 @@ def _validate_env():
         raise EnvironmentError(
             f"Missing required OpenRouter settings in .env: {', '.join(missing)}"
         )
-class BaseOpenAICompatibleModel:
+class BaseOpenAICompatibleModel(language_model.LanguageModel):
     """Language Model that uses OpenRouter's OpenAI-compatible models, with safer initialization."""
 
     def __init__(
@@ -74,14 +74,11 @@ class BaseOpenAICompatibleModel:
         except Exception as e:
             raise ConnectionError(f"Failed to initialize OpenRouter client: {e}") from e
 
-        super().__init__(
-            model_name=self._model_name,
-            client=client,
-            measurements=measurements,
-            channel=channel,
-            system_prompt=system_prompt,
-            max_tokens=max_tokens,
-        )
+        # Do not call super().__init__ since LanguageModel has no init args;
+        # keep initialization minimal and set essential attributes locally.
+        self._measurements = measurements
+        self._channel = channel
+        self._client = client
 
     # Optional: Provider-specific override for sample_text to add extra logging
     def sample_text(self, *args, **kwargs) -> str:
