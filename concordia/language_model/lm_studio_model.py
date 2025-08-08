@@ -3,7 +3,7 @@
 import os
 from concordia.language_model import language_model
 from concordia.language_model.base_oai_compatible import BaseOAICompatibleModel
-from concordia.utils.deprecated import measurements as measurements_lib
+from concordia.utils import measurements as measurements_lib
 import openai
 
 
