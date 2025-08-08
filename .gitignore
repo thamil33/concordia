@@ -32,3 +32,5 @@ requirements.txt
 .github
 pyproject.toml
 .pylintrc
+
+_notes
