@@ -1,61 +1,61 @@
-"""Language Model that uses OpenRouter's OpenAI-compatible API (Optimized)."""
-#openrouter_model.py
+"""Language Model that uses OpenRouter."""
 import os
-from collections.abc import Sequence
-from typing import Optional
-
-from dotenv import load_dotenv, find_dotenv
-import openai
 
 from concordia.language_model import language_model
-from concordia.language_model.base_openai_compatible_model import BaseOpenAICompatibleModel
+from concordia.language_model.base_oai_compatible import BaseOAICompatibleModel
 from concordia.utils import measurements as measurements_lib
+import openai
 
 
-# --- Environment Setup ---
-# Load from .env anywhere in project
-load_dotenv(find_dotenv(), override=False)
+class OpenRouterModel(BaseOAICompatibleModel):
+  """Language Model that uses a model from OpenRouter."""
 
-# Centralized env config with defaults
-ENV = {
-    "MODEL": os.getenv("OPENROUTER_MODEL"),
-    "API_URL": os.getenv("OPENROUTER_API_URL"),
-    "API_KEY": os.getenv("OPENROUTER_API_KEY"),
-    "XTRA_URL": os.getenv("OPENROUTER_XTRA_URL"),
-    "XTRA_TITLE": os.getenv("OPENROUTER_XTRA_TITLE"),
-}
+  def __init__(
+      self,
+      model_name: str | None = None,
+      *,
+      api_key: str | None = None,
+      base_url: str | None = None,
+      measurements: measurements_lib.Measurements | None = None,
+      channel: str = language_model.DEFAULT_STATS_CHANNEL,
+  ):
+    """Initializes the instance.
 
+    Args:
+      model_name: The model name to use, e.g., "mistralai/mistral-7b-instruct".
+        If None, will use the OPENROUTER_MODEL environment variable.
+        See https://openrouter.ai/docs#models for a list of models.
+      api_key: The OpenRouter API key. If None, will use the
+        OPENROUTER_API_KEY environment variable.
+      base_url: The base URL of the OpenRouter API. If None, will use the
+        OPENROUTER_API_URL environment variable, falling back to
+        "https://openrouter.ai/api/v1".
+      measurements: The measurements object to log usage statistics to.
+      channel: The channel to write the statistics to.
+    """
+    api_key = api_key or os.environ.get('OPENROUTER_API_KEY')
+    if not api_key:
+      raise ValueError(
+          'OpenRouter API key must be provided either as the `api_key`'
+          + ' argument or through the `OPENROUTER_API_KEY` environment'
+          + ' variable.'
+      )
 
-def _validate_env():
-    """Ensure required environment variables are set."""
-    missing = [k for k, v in {"MODEL": ENV["MODEL"], "API_KEY": ENV["API_KEY"]}.items() if not v]
-    if missing:
-        raise EnvironmentError(
-            f"Missing required OpenRouter settings in .env: {', '.join(missing)}"
-        )
+    base_url = base_url or os.environ.get(
+        'OPENROUTER_API_URL', 'https://openrouter.ai/api/v1'
+    )
+    model_name = model_name or os.environ.get('OPENROUTER_MODEL')
+    if not model_name:
+      raise ValueError(
+          'OpenRouter model name must be provided either as the `model_name`'
+          + ' argument or through the `OPENROUTER_MODEL` environment variable.'
+      )
 
+    client = openai.OpenAI(api_key=api_key, base_url=base_url)
 
-class OpenRouterLanguageModel(BaseOpenAICompatibleModel):
-    def __init__(
-        self,
-        model_name: Optional[str] = ENV["MODEL"],
-        api_key: Optional[str] = ENV["API_KEY"],
-        base_url: Optional[str] = ENV["API_URL"],
-        http_referer: Optional[str] = ENV["XTRA_URL"],
-        x_title: Optional[str] = ENV["XTRA_TITLE"],
-        measurements: Optional[measurements_lib.Measurements] = None,
-        channel: str = language_model.DEFAULT_STATS_CHANNEL,
-        system_prompt: Optional[str] = None,
-        max_tokens: int = language_model.DEFAULT_MAX_TOKENS,
-    ):
-        super().__init__(
-            model_name=model_name,
-            api_key=api_key,
-            base_url=base_url,
-            http_referer=http_referer,
-            x_title=x_title,
-            measurements=measurements,
-            channel=channel,
-            system_prompt=system_prompt,
-            max_tokens=max_tokens,
-        )
+    super().__init__(
+        model_name=model_name,
+        client=client,
+        measurements=measurements,
+        channel=channel,
+    )

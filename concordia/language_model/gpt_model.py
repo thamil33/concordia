@@ -3,12 +3,12 @@
 import os
 
 from concordia.language_model import language_model
-from concordia.language_model.base_openai_compatible_model import BaseOpenAICompatibleModel
-from concordia.utils.deprecated import measurements as measurements_lib
+from concordia.language_model.base_oai_compatible import BaseOAICompatibleModel
+from concordia.utils import measurements as measurements_lib
 import openai
 
 
-class GptLanguageModel(BaseOpenAICompatibleModel):
+class GptLanguageModel(BaseOAICompatibleModel):
   """Language Model that uses OpenAI GPT models."""
 
   def __init__(
