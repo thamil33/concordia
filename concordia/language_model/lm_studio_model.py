@@ -3,7 +3,7 @@
 import os
 from concordia.language_model import language_model
 from concordia.language_model.base_oai_compatible import BaseOAICompatibleModel
-from concordia.utils import measurements as measurements_lib
+from concordia.utils.deprecated import measurements as measurements_lib
 import openai
 
 
@@ -15,6 +15,7 @@ class LmStudioModel(BaseOAICompatibleModel):
       model_name: str | None = None,
       *,
       base_url: str | None = None,
+      timeout: float | None = None,
       measurements: measurements_lib.Measurements | None = None,
       channel: str = language_model.DEFAULT_STATS_CHANNEL,
   ):
@@ -27,6 +28,9 @@ class LmStudioModel(BaseOAICompatibleModel):
       base_url: The base URL of the LM Studio server. If None, will use the
         LM_STUDIO_URL environment variable, falling back to
         "http://127.0.0.1:1234/v1".
+      timeout: The timeout for API requests in seconds. If None, will use the
+        LM_STUDIO_TIMEOUT environment variable, falling back to 600.0 (10
+        minutes).
       measurements: The measurements object to log usage statistics to.
       channel: The channel to write the statistics to.
     """
@@ -34,6 +38,9 @@ class LmStudioModel(BaseOAICompatibleModel):
       base_url = os.environ.get('LM_STUDIO_URL', 'http://127.0.0.1:1234/v1')
     if model_name is None:
       model_name = os.environ.get('LM_STUDIO_MODEL')
+    if timeout is None:
+        timeout_str = os.environ.get('LM_STUDIO_TIMEOUT', '600.0')
+        timeout = float(timeout_str)
 
     if not model_name:
       raise ValueError(
@@ -44,7 +51,8 @@ class LmStudioModel(BaseOAICompatibleModel):
     # LM Studio's local server does not require an API key.
     client = openai.OpenAI(
         api_key="lm-studio",
-        base_url=base_url
+        base_url=base_url,
+        timeout=timeout,
     )
 
     super().__init__(
