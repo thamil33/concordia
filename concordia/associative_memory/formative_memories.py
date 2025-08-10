@@ -1,6 +1,3 @@
-
-
-
 """This is a factory for generating memories for concordia agents."""
 
 from collections.abc import Callable, Collection, Sequence

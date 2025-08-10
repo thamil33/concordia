@@ -1,5 +1,3 @@
-
-
 """A prefab implementing an entity with a minimal set of components."""
 
 from collections.abc import Mapping

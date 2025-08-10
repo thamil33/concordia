@@ -1,7 +1,4 @@
-
-
-"""Sequential (turn-based) action engine.
-"""
+"""Sequential (turn-based) action engine."""
 
 from collections.abc import Mapping, Sequence
 import functools

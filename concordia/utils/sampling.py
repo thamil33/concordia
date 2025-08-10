@@ -1,5 +1,3 @@
-
-
 """Helper functions for language model sampling.
 """
 
@@ -8,7 +6,7 @@ import re
 
 def _extract_parenthesized_choice(sample: str):
   """Given text formatted as 'lorum(a)ipsum', return 'a'."""
-  match = re.search(r'\(?(\w)\)', sample)
+  match = re.search(r'\((\w)\)', sample)
   if match:
     return match.group(1)
   else:
@@ -16,16 +14,26 @@ def _extract_parenthesized_choice(sample: str):
 
 
 def extract_choice_response(sample: str) -> str | None:
-  """Given a sample such as "a", "a)", or "foo(a)bar, return the choice."""
-  if len(sample) == 1:
-    # i.e. this would be a sample such as "a"
-    return sample
-  elif len(sample) == 2:
-    # i.e. this would be a sample such as "a)"
-    return sample[0]
-  else:
-    # extract a substring like "(a)" wherever it may be in a longer string
-    return _extract_parenthesized_choice(sample)
+  """
+  Given a sample that may include reasoning before the choice,
+  extracts the final choice. e.g. "I think the answer is b. b" -> "b"
+  """
+  # Strip whitespace and make lowercase for robust matching.
+  sample = sample.strip().lower()
+
+  # Find all alphabetic characters in the sample.
+  letters = re.findall(r'[a-z]', sample)
+
+  # The intended choice is almost always the very last letter the model outputs.
+  if letters:
+    return letters[-1]
+
+  # Fallback for parenthesized choices if the above fails for some reason.
+  parenthesized = _extract_parenthesized_choice(sample)
+  if parenthesized:
+      return parenthesized
+
+  return None
 
 
 def dynamically_adjust_temperature(

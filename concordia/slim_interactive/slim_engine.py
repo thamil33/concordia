@@ -17,8 +17,8 @@ from concordia.type_checks import simulation as simulation_lib
 from concordia.utils import html as html_lib
 import numpy as np
 
-# Import the new SlimAgent prefab
-from factory.patterns import slim_agent
+# Import the new SlimAgent prefab from the correct path
+from concordia.slim_interactive import slim_agent
 
 
 Config = prefab_lib.Config
@@ -79,20 +79,15 @@ class LivingSimulation(simulation_lib.Simulation):
       self.add_game_master(gm_config)
 
 
-  def run_cycle(self, premise: str | None = None) -> str:
+  def run_cycle(self, premise: str | None = None):
     """Runs a single cycle of the simulation.
 
     Args:
         premise: A string to use as the premise for this cycle. If None,
                  the simulation continues from the last state.
-
-    Returns:
-        An HTML log of the events that occurred during the cycle.
     """
     if premise is None:
         premise = self._config.default_premise
-
-    cycle_log = []
 
     # Ensure game masters are ordered Initializers first, then others.
     initializers = [
@@ -113,12 +108,13 @@ class LivingSimulation(simulation_lib.Simulation):
         premise=premise,
         max_steps=1,  # Run for a single cycle
         verbose=True,
-        log=cycle_log,
+        log=self._raw_log, # Append to the main log
     )
 
-    self._raw_log.extend(cycle_log)
-    html_log = html_lib.PythonObjectToHTMLConverter(cycle_log).convert()
-    return html_lib.finalise_html(html_log)
+  def get_html_log(self) -> str:
+      """Generates an HTML log of the entire simulation history."""
+      html_log = html_lib.PythonObjectToHTMLConverter(self._raw_log).convert()
+      return html_lib.finalise_html(html_log)
 
 
   def save(self, filepath: str):
